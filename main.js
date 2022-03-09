@@ -3,22 +3,26 @@
 const suits= ['Hearts', 'Spades', 'Clubs', 'Diamonds']
 const cardValues= ['Ace', 2, 3, 4, 5, 6, 7, 8,9, 10, 'Jack', 'Queen', 'King',]
 const newDeck =[]
-let cardTotal = 0
-let playerTotal=0
-let dealerTotal=0
+let dealtCard;
+let king =10
+let queen = 10
+let jack =10
+let ace = 1 || 11
 let cardArea = document.querySelector('#cardArea')
 // let cardCheck = document.querySelector('.cardCheck')
-// let cardSpot =document.querySelector('.cardSpot')
 let dealerCards =document.querySelector('#dealerCards');
 let playerCards = document.querySelector('#playerCards');
 let dealerDraw =document.querySelector('#dealerDraw');
 let playerDraw =document.querySelector('#playerDraw');
-
+let dCardTotal= document.querySelector('#dCardTotal')
+let pCardTotal= document.querySelector('#pCardTotal')
+// let cardTotal = 0
+let playerCardTotal=0
+let dealerCardTotal=0
 
 
 //********A Deck of cards */
 //make a deck of cards
-
 function makeDeckOfCards (){
     for (let i=0; i<suits.length; i++){
         for(let j=0; j<cardValues.length; j++){
@@ -31,37 +35,48 @@ makeDeckOfCards()
 
 //pick a random card and prevent it from being selected again
 
-function dealerRandomCard (e){
-    // for (let i=0; i<4; i++){
-        e.target.preventDefault
+function randCard(){
         let cardIndex = Math.floor(Math.random()*52);
-        let dealtCard = newDeck[cardIndex]
+         dealtCard= newDeck[cardIndex]
+        }
+
+   let dealerTotal  =[];
+function dealerRandomCard (e){
+    e.target.preventDefault
+        randCard()
         let li = document.createElement ('li')
         dealerCards.appendChild(li)
         li.textContent =dealtCard
-            // }
+    //should i remove selected card from array here?
+    // newDeck.filter(d => d!==dealtCard)
+    //need to make string value a integer and add all cards selected
+    //card selected w/click needs to be split and first part put into an array to be added later
+    //********lines 55-61 need to be redone b/c it's making an array of arrays */
+    let test = dealtCard.split(" ",1)
+    dealerTotal.push(test)
+    console.log(test)
+    console.log(dealerTotal)
+        for (let i=0;i<dealerTotal.length;i++){
+            dealerCardTotal +=dealerTotal
+            dCardTotal.innerText=dealerCardTotal.value
         }
-
-        function playerRandomCard (e){
-//     for (let i=0; i<4; i++){
-    e.target.preventDefault
-        let cardIndex = Math.floor(Math.random()*52);
-        let dealtCard = newDeck[cardIndex]
-        let li = document.createElement ('li')
-        playerCards.appendChild(li)
-        li.textContent =dealtCard
 }
 
 
+function playerRandomCard (e){
+        e.target.preventDefault
+        randCard()
+        let li = document.createElement ('li')
+        playerCards.appendChild(li)
+        li.textContent =dealtCard
+        }
 
 
-//dealtCard appendChild (body?)
 //need to prevent random card from being selected again
 // if (newDeck[card]===)
 
 dealerDraw.addEventListener('click',dealerRandomCard)
 playerDraw.addEventListener('click',playerRandomCard)
-
 
 
 
@@ -72,6 +87,8 @@ function dealInit (){
 }
 // MMMMMM.addEventListener('click', cardDeal)
 
+// let card1 = dealtCard[0]
+// let card2 = dealtCard[1]
 
 //********************Adding Cards */
 //add the cards together
@@ -95,17 +112,9 @@ function dealInit (){
 //************************** */
 
 //how to deal cards one at a time to opposite players
-//need input boxes for card destination 
-    //appendChild for cards
-    //start with two input boxes for each player
-    //
 
-// for (let i=0; i<5;i++){
-// let cardSpot= document.getElementById('cardSpot')
-// let li = document.createElement ('li')
-// cardSpot.appendChild(li)
-// li.appendChild(dealtCard)
 
-// }
+//if player/dealer addeventlistern hit then appendchild with another random card
+//if player/dealer addeventlistern hold then next turn
 
-//if player addeventlistern hit then appendchild with another random card
+//*******look up tictactoe for how to do turns */
