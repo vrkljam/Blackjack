@@ -8,8 +8,14 @@ let playerTotal=0
 let dealerTotal=0
 let cardArea = document.querySelector('#cardArea')
 // let cardCheck = document.querySelector('.cardCheck')
-let cardSpot =document.querySelector('.cardSpot')
-console.log(cardSpot)
+// let cardSpot =document.querySelector('.cardSpot')
+let dealerCards =document.querySelector('#dealerCards');
+let playerCards = document.querySelector('#playerCards');
+let dealerDraw =document.querySelector('#dealerDraw');
+let playerDraw =document.querySelector('#playerDraw');
+
+
+
 //********A Deck of cards */
 //make a deck of cards
 
@@ -22,32 +28,39 @@ function makeDeckOfCards (){
         }
     }
 makeDeckOfCards()
-// newDeck.splice(5,1)
-// console.log(newDeck)
 
 //pick a random card and prevent it from being selected again
-// function  randomCard (){
-    let card = Math.floor(Math.random()*52);
-    let dealtCard = newDeck[card]
- 
-    
-// }
-// randomCard()
-console.log(dealtCard)
-console.log(newDeck.splice(dealtCard,1))
 
-for (let i=0; i<4; i++){
-    let li = document.createElement ('li')
-    cardSpot.appendChild(li)
-    li.textContent =dealtCard
-    // li.appendChild(dealtCard)
+function dealerRandomCard (e){
+    // for (let i=0; i<4; i++){
+        e.target.preventDefault
+        let cardIndex = Math.floor(Math.random()*52);
+        let dealtCard = newDeck[cardIndex]
+        let li = document.createElement ('li')
+        dealerCards.appendChild(li)
+        li.textContent =dealtCard
+            // }
+        }
 
+        function playerRandomCard (e){
+//     for (let i=0; i<4; i++){
+    e.target.preventDefault
+        let cardIndex = Math.floor(Math.random()*52);
+        let dealtCard = newDeck[cardIndex]
+        let li = document.createElement ('li')
+        playerCards.appendChild(li)
+        li.textContent =dealtCard
 }
+
+
+
+
 //dealtCard appendChild (body?)
 //need to prevent random card from being selected again
 // if (newDeck[card]===)
 
-
+dealerDraw.addEventListener('click',dealerRandomCard)
+playerDraw.addEventListener('click',playerRandomCard)
 
 
 

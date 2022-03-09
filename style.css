@@ -1,7 +1,16 @@
 body{
     background-color: lightgreen;
 }
-.cardSpot{
+/* .cardSpot{
     background-color: lightgray;
     border: 2px solid black;
+} */
+
+#dealerCards {
+    background-color: aqua;
+    color: rgb(38, 21, 230);
+}
+#playerCards {
+    background-color: rgb(255, 0, 89);
+    color: rgb(38, 21, 230);
 }
