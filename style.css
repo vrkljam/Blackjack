@@ -9,8 +9,40 @@ body{
 #dealerCards {
     background-color: aqua;
     color: rgb(38, 21, 230);
+    margin: 20px;
 }
 #playerCards {
     background-color: rgb(255, 0, 89);
     color: rgb(38, 21, 230);
+    margin: 20px;
+}
+
+.cardBoxDealer{
+    display: inline-block;
+    border: 3px solid black;
+    padding: 2px;
+    margin: 0 auto;
+    background-color: deepskyblue;
+    height: 80px;
+    width: 40px;
+
+}
+.cardBoxPlayer{
+    display: inline-block;
+    border: 3px solid black;
+    padding: 2px;
+    margin: 0 auto;
+    background-color: gold;
+    height:80px;
+    width: 40px;
+
+}
+#playerName {
+    display: flex;
+}
+.hidden{
+    opacity:0;
+}
+.grayLetters{
+    color:lightgray;
 }
