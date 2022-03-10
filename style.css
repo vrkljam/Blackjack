@@ -1,5 +1,5 @@
 body{
-    background-color: lightgreen;
+    background-color: mediumslateblue;
 }
 /* .cardSpot{
     background-color: lightgray;
@@ -12,7 +12,8 @@ body{
     margin: 20px;
 }
 #playerCards {
-    background-color: rgb(255, 0, 89);
+    
+    background-color:white;
     color: rgb(38, 21, 230);
     margin: 20px;
 }
@@ -23,8 +24,9 @@ body{
     padding: 2px;
     margin: 0 auto;
     background-color: deepskyblue;
-    height: 80px;
-    width: 40px;
+    height: 90px;
+    width: 45px;
+    font-size:x-large;
 
 }
 .cardBoxPlayer{
@@ -33,8 +35,9 @@ body{
     padding: 2px;
     margin: 0 auto;
     background-color: gold;
-    height:80px;
-    width: 40px;
+    height:90px;
+    width: 45px;
+    font-size:x-large;
 
 }
 #playerName {
