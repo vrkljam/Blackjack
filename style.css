@@ -1,28 +1,50 @@
 body{
     background-color: rgb(70, 200, 50);
+    
 }
 /* .cardSpot{
     background-color: lightgray;
     border: 2px solid black;
 } */
+
+
 h1 {
     text-align: center;
-
+    
 }
+
+#startBtn{
+   position: relative;
+   left:46%
+}
+#playAgain{
+    position: relative;
+    left:46%
+  
+}
+
+h2 {
+    text-align: center;
+}
+
 #dealerCards {
+    width: 50%;
     background-color: aqua;
     color: rgb(38, 21, 230);
-    margin: 20px;
+    margin: 0 auto;
+    position: relative;
 }
 #playerCards {
-    
+    width: 50%;
     background-color:white;
     color: rgb(38, 21, 230);
-    margin: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    
 }
 
 .cardBoxDealer{
-    display: inline-block;
+    display: inline-flex;
     border: 3px solid black;
     padding: 2px;
     margin: 0 auto;
@@ -34,17 +56,21 @@ h1 {
     
 }
 .cardBoxPlayer{
-    display: inline-block;
+    display: inline-flex;
     border: 3px solid black;
     padding: 2px;
     margin: 0 auto;
     background-color: gold;
-    /* background-image: url("/images/playing-card-g94b04bb74_640.jpg"); */
+    /* background-image: url("images/playing-card-g94b04bb74_640.jpg"); */
     height:90px;
     width: 45px;
     font-size:x-large;
     border-radius: 10%;
     
+}
+#dHit {
+    display: block;
+  
 }
 #playerName {
     display: flex;
@@ -55,14 +81,12 @@ h1 {
 .grayLetters{
     color:lightgray;
 }
-
-#dScore{
-    display:flex;
-
-
+label{
+    display: inline-block;
+    text-align: right;
 }
-#pScore{
-    display:flex;
-    
+
+#dScore {
+
 
 }
