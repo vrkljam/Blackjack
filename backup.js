@@ -53,82 +53,78 @@ let tempHand  =[]
 
 function randCard(){
     let cardIndex = Math.floor(Math.random()*52);
-    dealtCard= newDeck[cardIndex]
-    console.log (dealtCard)
-    const isCard = tempHand.includes(dealtCard)
-    console.log(isCard)
+        dealtCard= newDeck[cardIndex]
+        console.log (dealtCard)
+        const isCard = tempHand.includes(dealtCard)
+        console.log(isCard)
     if (isCard ===true){
-        randCard()
-    } 
-    tempHand.push(dealtCard);
-}
-
+              randCard()
+            } 
+      tempHand.push(dealtCard);
+    }
+    
 function dealInit (){
     playerHand(); 
     setTimeout(dealerHand, 500);
     setTimeout(playerHand, 1000);
     setTimeout(dealerHand, 1500);
+    }
+
+    
+function playReset (){
+    // console.log (`this is classlist for dealer: `, cardDivDealer.textContent)
+
+//     div.remove.classList;
 }
 
+function dealerHand (){
+    randCard()
 
-function playReset (){
-    // based on info from stack overflow
- 
-        let removeDealerCards = document.querySelectorAll( '.cardBoxDealer').forEach(items=>items.remove());
-        let removePlayerCards = document.querySelectorAll( '.cardBoxPlayer').forEach(items=>items.remove());
-        startBtn.classList.remove('grayLetters');
-        startBtn.disabled=false;
-
-    }
-    
-    function dealerHand (){
-        randCard()
-        
-        let div1 = document.createElement ('div');
-        dealerCards.appendChild(div1);
-        div1.textContent =dealtCard;
+    let div = document.createElement ('div');
+        dealerCards.appendChild(div);
+        div.textContent =dealtCard;
         // console.log(div.textContent);
-        div1.classList.add('cardBoxDealer');
-        div1.classList.add('shownCard');
+        div.classList.add('cardBoxDealer');
+        div.classList.add('shownCard');
         // console.log(dealerCards)
         // console.log(tempHand)
     
-    
+
     let changCardToInt = dealtCard.split(" ",1);
     
     if (changCardToInt[0]==='Jack'||changCardToInt[0]==='Queen'||changCardToInt[0]==='King'){
-        dealerTotal.push(10);
-    }  else if (changCardToInt[0]==='Ace'){
-        dAceValue();
-    } else {
-        dealerTotal.push(Number(changCardToInt));
-    }
-    // console.log(`dealerTotal: `, dealerTotal)
-    
-    for (let i=0; i<dealerTotal.length; i++){
-        dealerCardTotal +=Number(dealerTotal[i])
-        dCardTotal.value=dealerCardTotal 
-        console.log(dealerCardTotal)
-        dealerTotal=[]
-    }
-    
-    if (dealerCardTotal>=17 || dealerCardTotal>=22){
-        dHit.classList.add('grayLetters')
-        dHit.removeEventListener('click',dealerHand)
-    }
-    if (dealerCardTotal===21){
-        winner()
-    }  
-    
-    // if (dealerCardTotal<=16){
-        //     setTimeout(dealerHand, 500)
-        //     } else if (dealerCardTotal>=17 && dealerCardTotal<21){
-            //             alert('im done')
-            //         }
+            dealerTotal.push(10);
+        }  else if (changCardToInt[0]==='Ace'){
+            dAceValue();
+        } else {
+            dealerTotal.push(Number(changCardToInt));
         }
-        
-        function playerHand (){
-            randCard()
+            // console.log(`dealerTotal: `, dealerTotal)
+            
+    for (let i=0; i<dealerTotal.length; i++){
+            dealerCardTotal +=Number(dealerTotal[i])
+            dCardTotal.value=dealerCardTotal 
+            console.log(dealerCardTotal)
+            dealerTotal=[]
+            }
+                
+        if (dealerCardTotal>=17 || dealerCardTotal>=22){
+            dHit.classList.add('grayLetters')
+            dHit.removeEventListener('click',dealerHand)
+        }
+        if (dealerCardTotal===21){
+            winner()
+        }  
+
+    // if (dealerCardTotal<=16){
+    //     setTimeout(dealerHand, 500)
+    //     } else if (dealerCardTotal>=17 && dealerCardTotal<21){
+    //             alert('im done')
+    //         }
+}
+                
+function playerHand (){
+    randCard()
     
     let div = document.createElement ('div')
     playerCards.appendChild(div)
@@ -224,7 +220,8 @@ playAgain.addEventListener('click', playReset)
 
 //remove eventlistener from mdn docs
 pHold.addEventListener('click', function (){
-            pHit.disabled=true;})
+            pHit.classList.add('grayLetters');
+            pHit.removeEventListener('click',playerHand)})
 
 //one and elven buttons
 one.addEventListener('click', function() {playerCardTotal++})
@@ -233,7 +230,8 @@ eleven.addEventListener('click', function () {playerCardTotal+=11})
 
 //May not need a dealer hold button
 dHold.addEventListener('click', function (){
-    dHit.disabled=true;})
+    dHit.classList.add('grayLetters');
+    dHit.removeEventListener('click',dealerHand)})
 
 
 

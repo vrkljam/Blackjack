@@ -1,11 +1,14 @@
 body{
-    background-color: mediumslateblue;
+    background-color: rgb(70, 200, 50);
 }
 /* .cardSpot{
     background-color: lightgray;
     border: 2px solid black;
 } */
+h1 {
+    text-align: center;
 
+}
 #dealerCards {
     background-color: aqua;
     color: rgb(38, 21, 230);
@@ -27,7 +30,8 @@ body{
     height: 90px;
     width: 45px;
     font-size:x-large;
-
+    border-radius: 10%;
+    
 }
 .cardBoxPlayer{
     display: inline-block;
@@ -35,10 +39,12 @@ body{
     padding: 2px;
     margin: 0 auto;
     background-color: gold;
+    /* background-image: url("/images/playing-card-g94b04bb74_640.jpg"); */
     height:90px;
     width: 45px;
     font-size:x-large;
-
+    border-radius: 10%;
+    
 }
 #playerName {
     display: flex;
@@ -48,4 +54,15 @@ body{
 }
 .grayLetters{
     color:lightgray;
+}
+
+#dScore{
+    display:flex;
+
+
+}
+#pScore{
+    display:flex;
+    
+
 }
