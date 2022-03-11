@@ -53,13 +53,12 @@ let tempHand  =[]
 
 function randCard(){
     let cardIndex = Math.floor(Math.random()*52);
-    dealtCard= newDeck[cardIndex]
-    console.log (dealtCard)
+        dealtCard= newDeck[cardIndex]
+        console.log (dealtCard)
     const isCard = tempHand.includes(dealtCard)
-    console.log(isCard)
     if (isCard ===true){
         randCard()
-    } 
+        } 
     tempHand.push(dealtCard);
 }
 
@@ -74,11 +73,16 @@ function dealInit (){
 function playReset (){
     // based on info from stack overflow
  
-        let removeDealerCards = document.querySelectorAll( '.cardBoxDealer').forEach(items=>items.remove());
-        let removePlayerCards = document.querySelectorAll( '.cardBoxPlayer').forEach(items=>items.remove());
+        document.querySelectorAll( '.cardBoxDealer').forEach(items=>items.remove());
+        document.querySelectorAll( '.cardBoxPlayer').forEach(items=>items.remove());
         startBtn.classList.remove('grayLetters');
         startBtn.disabled=false;
-
+        pHit.disabled=false;
+        dHit.disabled=false;
+        dealerCardTotal=0;
+        dCardTotal.value='';
+        playerCardTotal=0;
+        pCardTotal.value='';
     }
     
     function dealerHand (){
@@ -87,12 +91,8 @@ function playReset (){
         let div1 = document.createElement ('div');
         dealerCards.appendChild(div1);
         div1.textContent =dealtCard;
-        // console.log(div.textContent);
         div1.classList.add('cardBoxDealer');
         div1.classList.add('shownCard');
-        // console.log(dealerCards)
-        // console.log(tempHand)
-    
     
     let changCardToInt = dealtCard.split(" ",1);
     
@@ -103,7 +103,6 @@ function playReset (){
     } else {
         dealerTotal.push(Number(changCardToInt));
     }
-    // console.log(`dealerTotal: `, dealerTotal)
     
     for (let i=0; i<dealerTotal.length; i++){
         dealerCardTotal +=Number(dealerTotal[i])
@@ -127,8 +126,8 @@ function playReset (){
             //         }
         }
         
-        function playerHand (){
-            randCard()
+function playerHand (){
+    randCard()
     
     let div = document.createElement ('div')
     playerCards.appendChild(div)
@@ -191,11 +190,11 @@ function pAceValue(){
 function winner(){
         alert('Winner')
         if (dealerCardTotal > playerCardTotal && dealerCardTotal<21){
-            dScore ++
+            dScore.value ++
         } else if (playerCardTotal > dealerCardTotal && dealerCardTotal<21){
-            pScore ++
+            pScore.value ++
         } else if (dealerCardTotal >=22){
-            pScore ++
+            pScore.value ++
         } else if (dealerCardTotal===playerCardTotal){
             alert ('tie')
         }
@@ -272,15 +271,3 @@ dHold.addEventListener('click', function (){
 
     //
     //Scoring
-    // 
-    // 
-//     let resetButton = document.querySelector('.resetButton')
-// function resButton (){
-//     for(let i = 0; i < newBoxes.length; i++) {
-//         newBoxes[i].classList.remove('purple')
-//         newBoxes[i].classList.remove('gold')
-//         newBoxes[i].classList.add('hidden')
-//         newBoxes[i].innerText= '';
-//     }
-//     }
-// resetButton.addEventListener('click', resButton)
