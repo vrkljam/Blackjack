@@ -49,16 +49,17 @@ h1 {
 }
 
 h2 {
-    text-align: center;
+    margin:0;
+    /* text-align: center; */
 }
 
 #dealerCards {
 display: flex;
 flex-direction: row;
 flex-wrap: wrap;
-/* justify-content: ; */
-align-items: baseline;
+justify-content: space-evenly;
 align-items: flex-start;
+/* align-items: flex-start; */
 
     width: 50%;
     height: 220px;
@@ -103,9 +104,12 @@ align-items: flex-start;
     
 }
 #dHit {
+    /* justify-self: flex-end; */
     /* display: block; */
-    position: relative;
-    left: 0px;
+    /* position: relative;
+    top: 150px;
+    left: -70px;
+    width: 30%; */
 
 }
 #playerName {
@@ -118,17 +122,34 @@ align-items: flex-start;
     color:lightgray;
 }
 label{
-    display: inline-block;
-    text-align: right;
+    /* display: inline-block; */
+    /* text-align: right; */
+}
+#dealerWinLabel{
+    /* position: relative;
+    top: 0;
+    right:0; */
+    margin:5px;
+}
+#dScore{
+    /* position: relative;
+    top:0;
+    right: -150px; */
+    margin:5px;
+    width: 10%;
+}
+#dCardTotalLabel{
+    margin:5px;
+}
+#dCardTotal {
+/* position: relative; */
+/* top: -10px; */
+/* left: 1px; */
+margin: 5px;
+width: 10%;
 }
 
-#dScore {
 
+#pCardTotal{
 
-}
-#hearts, #spades {
-    float: left;
-}
-#clubs, #diamonds{
-    float: right;
 }

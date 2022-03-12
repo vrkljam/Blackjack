@@ -10,45 +10,42 @@
 <body>
     <h1>BlackJack</h1>
     <div id="fourSymbols">
-        <p  class="symbols" id="hearts">♥︎</p>
+        <p class="symbols" id="hearts">♥︎</p>
         <p class="symbols" id="spades"> ♠︎</p>
         <p class="symbols" id="clubs"> ♣︎</p>
         <p class="symbols" id="diamonds">♦</p>
     </div>
-    <div id="dealerCards">
-       <h2>Dealer</h2>
-       
-       <label for="dScore">Wins</label>
-       <input type="text" placeholder='Dealer Wins' name="dScore" id="dScore">
-       
-       <label for="dCardTotal">Card Total</label>
-       <input type="text" placeholder='Dealer Card Total' name="cardTotal" id="dCardTotal">
-       <button id="dHit">Hit</button>
-   </div>
+
     <button id="startBtn">Start</button>
     <button id="playAgain">Reset</button>
     <!-- <div class="cardSpot" id="cardArea">Card Spot?</div> -->   
-    
-    <div id="playerCards">
-        <h2>Player</h2>
-        <input type="text" placeholder="Enter your name" id="playerName">
-        <button id="pHit">Hit</button>
-        <button id="pHold">Hold</button>
-        <section> Ace Choice
-            <button id="one">One</button>
-            <button id="eleven">Eleven</button>
-        </section>
-        <label for="pScore" class="playerScoreLabel">Player Score</label>
-        <input type="text" placeholder='Player Score' name="pScore" id="pScore">
-        <label for="pcardTotal">Player Card Total</label>
-        <input type="text" placeholder='Player Card Total' name="cardTotal" id="pCardTotal">
+
+    <div id = "playing area">
+        <div id="dealerCards">
+            <label for="dScore" id ='dealerWinLabel'>Wins</label>
+            <input type="text" placeholder='Dealer Wins' name="dScore" id="dScore">
+            <h2>Dealer</h2>
+            <label for="dCardTotal" id="dCardTotalLabel">Card Total</label>
+            <input type="text" placeholder='Dealer Card Total' name="cardTotal" id="dCardTotal">
+            <button id="dHit">Hit</button>
+        </div>
+
+        
+        <div id="playerCards">
+            <h2>Player</h2>
+            <input type="text" placeholder="Enter your name" id="playerName">
+            <button id="pHit">Hit</button>
+            <button id="pHold">Hold</button>
+            <section> Ace Choice
+                <button id="one">One</button>
+                <button id="eleven">Eleven</button>
+            </section>
+            <label for="pScore" class="playerScoreLabel">Player Score</label>
+            <input type="text" placeholder='Player Score' name="pScore" id="pScore">
+            <label for="pcardTotal">Player Card Total</label>
+            <input type="text" placeholder='Player Card Total' name="cardTotal" id="pCardTotal">
+        </div>
     </div>
-    
-   
-
-
-    <p class="cardCheck"></p>
-
 
 <script src="main.js"></script>
     
