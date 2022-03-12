@@ -62,6 +62,7 @@ function randCard(){
     if (counter===52){
          alert ('shuffling new deck')
             tempHand =[]
+            counter=0
     }
 }
 
@@ -136,9 +137,9 @@ function playerHand (){
     if (changCardToInt[0]==='Jack'||changCardToInt[0]==='Queen'||changCardToInt[0]==='King'){
         playerTotal.push(10)
     } else if (changCardToInt[0]==='Ace'){
+        // oneBtn.disabled=false;
+        // elevenBtn.disabled=false;
         pAceValue();
-        oneBtn.disabled=false;
-        elevenBtn.disabled=false;
     } else {
         playerTotal.push(Number(changCardToInt))
     }
@@ -146,43 +147,26 @@ function playerHand (){
     for (let i=0; i<playerTotal.length; i++){
             playerCardTotal +=Number(playerTotal[i])
             pCardTotal.value=playerCardTotal 
-            // console.log(playerCardTotal)
             playerTotal=[]
         }
+
     if (playerCardTotal>=22 ||playerCardTotal===21 ){
         pHit.disabled=true;
         dHit.disabled=true;
         }
-
     checkStatus()
-
     }
 
-// && dHit.disabled===true
 function checkStatus (){
     if (pHit.disabled===true && dHit.disabled===true){
-
     compareScore() 
     }   
 }
 
-
-// function oneElevenBtns (){
-//     console.log (playerCardTotal)
-//     console.log (elevenBtn)
-
-//     if (oneBtn=true){
-//         playerCardTotal.value ++
-//     } else if (elevenBtn===true){
-//         playerCardTotal.value+=11
-//     }
-// }
-
 function dAceValue(){
-    // need to add conditions to change value from one to eleven if needed after value was entered into array as one
     if (dealerCardTotal===0 ||dealerCardTotal===10 ||dealerCardTotal>=6){
         dealerTotal.push(11);
-    } else if (dealerCardTotal ===11){
+    } else if (dealerCardTotal ===11||dealerCardTotal<16){
         dealerTotal.push(1);
         }else {
             dealerTotal.push(1);
@@ -190,23 +174,24 @@ function dAceValue(){
     } 
 
 function pAceValue(){
-    
+        console.log ('checking aces')
+        oneBtn.disabled=false;
+        elevenBtn.disabled=false;
     if (playerCardTotal===0 ||playerCardTotal===10){
         playerTotal.push(11);
     } else {
         playerTotal.push(1);
-    }
+    } 
 }   
 
 function winner(){
     // look up how to pop up a text box indicating winner
-        alert('Winner')
+        alert('Winner'   )
         if (dealerCardTotal!==playerCardTotal){
             dScore.value ++;
         } else {
             alert('its a tie')
         }
-
     }
 
     
@@ -257,10 +242,10 @@ playAgain.addEventListener('click', playReset)
 pHold.addEventListener('click', ()=> {pHit.disabled=true; checkStatus()})
 
 //one and elven buttons
-oneBtn.addEventListener('click',()=> {Number(playerCardTotal++);pCardTotal.value=playerCardTotal;console.log (playerCardTotal)})
+oneBtn.addEventListener('click',()=> {Number(playerCardTotal-=10);pCardTotal.value=playerCardTotal;console.log (playerCardTotal)})
 //e=> playercardtotal ++
     
-elevenBtn.addEventListener('click', ()=> {Number(playerCardTotal+=11); pCardTotal.value=playerCardTotal; console.log (playerCardTotal)})
+elevenBtn.addEventListener('click', ()=> {Number(playerCardTotal+=10); pCardTotal.value=playerCardTotal; console.log (playerCardTotal)})
 
 console.log(oneBtn);
 console.log(elevenBtn)

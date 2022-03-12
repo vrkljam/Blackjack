@@ -1,6 +1,9 @@
 body{
-    background-color: rgb(70, 200, 50);
-    
+    /* background-color: rgba(52, 145, 52, 0.9); */
+    background-image: radial-gradient(lightgreen,darkgreen);
+    background-size: contain;
+    /* display:grid;
+    grid-template-columns: 30% 30% 30%; */
 }
 /* .cardSpot{
     background-color: lightgray;
@@ -10,9 +13,31 @@ body{
 
 h1 {
     text-align: center;
-    
 }
 
+.symbols {
+    font-size: 100px;
+    color: rgba(38, 210, 38, 0.784);
+    text-shadow: 2px 8px black;
+    margin: 0px;
+}
+#hearts{
+    position: absolute;
+    top:50px;
+    left:30px;
+}#spades{
+    position: absolute;
+    top:50px;
+    right:30px;
+}#clubs{
+    position: absolute;
+    bottom:50px;
+    left:30px;
+}#diamonds{
+    position: absolute;
+    bottom:50px;
+    right:30px;
+}
 #startBtn{
    position: relative;
    left:46%
@@ -28,6 +53,13 @@ h2 {
 }
 
 #dealerCards {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+/* justify-content: ; */
+align-items: baseline;
+align-items: flex-start;
+
     width: 50%;
     height: 220px;
     background-color: aqua;
@@ -36,6 +68,7 @@ h2 {
     position: relative;
 }
 #playerCards {
+   
     width: 50%;
     background-color:white;
     color: rgb(38, 21, 230);
@@ -70,8 +103,10 @@ h2 {
     
 }
 #dHit {
-    display: block;
-  
+    /* display: block; */
+    position: relative;
+    left: 0px;
+
 }
 #playerName {
     display: flex;
@@ -90,4 +125,10 @@ label{
 #dScore {
 
 
+}
+#hearts, #spades {
+    float: left;
+}
+#clubs, #diamonds{
+    float: right;
 }

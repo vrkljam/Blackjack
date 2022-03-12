@@ -9,19 +9,25 @@
 </head>
 <body>
     <h1>BlackJack</h1>
-    
+    <div id="fourSymbols">
+        <p  class="symbols" id="hearts">♥︎</p>
+        <p class="symbols" id="spades"> ♠︎</p>
+        <p class="symbols" id="clubs"> ♣︎</p>
+        <p class="symbols" id="diamonds">♦</p>
+    </div>
+    <div id="dealerCards">
+       <h2>Dealer</h2>
+       
+       <label for="dScore">Wins</label>
+       <input type="text" placeholder='Dealer Wins' name="dScore" id="dScore">
+       
+       <label for="dCardTotal">Card Total</label>
+       <input type="text" placeholder='Dealer Card Total' name="cardTotal" id="dCardTotal">
+       <button id="dHit">Hit</button>
+   </div>
     <button id="startBtn">Start</button>
     <button id="playAgain">Reset</button>
     <!-- <div class="cardSpot" id="cardArea">Card Spot?</div> -->   
-    
-    <div id="dealerCards">
-        <h2>Dealer</h2>
-        <button id="dHit">Hit</button>
-        <label for="dScore">Dealer Score</label>
-        <input type="text" placeholder='Dealer Score' name="dScore" id="dScore">
-        <label for="dCardTotal">Dealer Card Total</label>
-        <input type="text" placeholder='Dealer Card Total' name="cardTotal" id="dCardTotal">
-    </div>
     
     <div id="playerCards">
         <h2>Player</h2>
