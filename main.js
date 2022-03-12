@@ -160,12 +160,9 @@ function playerHand (){
 
 // && dHit.disabled===true
 function checkStatus (){
-        console.log (pHit.disabled)
-    console.log(dHit.disabled)
     if (pHit.disabled===true && dHit.disabled===true){
-        console.log( 'im not active')
-    compareScore() 
 
+    compareScore() 
     }   
 }
 
@@ -260,10 +257,10 @@ playAgain.addEventListener('click', playReset)
 pHold.addEventListener('click', ()=> {pHit.disabled=true; checkStatus()})
 
 //one and elven buttons
-oneBtn.addEventListener('click',()=> {playerCardTotal++})
+oneBtn.addEventListener('click',()=> {Number(playerCardTotal++);pCardTotal.value=playerCardTotal;console.log (playerCardTotal)})
 //e=> playercardtotal ++
     
-elevenBtn.addEventListener('click', ()=> {playerCardTotal+=11})
+elevenBtn.addEventListener('click', ()=> {Number(playerCardTotal+=11); pCardTotal.value=playerCardTotal; console.log (playerCardTotal)})
 
 console.log(oneBtn);
 console.log(elevenBtn)
