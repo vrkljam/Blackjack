@@ -29,6 +29,7 @@ h2 {
 
 #dealerCards {
     width: 50%;
+    height: 220px;
     background-color: aqua;
     color: rgb(38, 21, 230);
     margin: 0 auto;

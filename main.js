@@ -46,7 +46,8 @@ function makeDeckOfCards (){
 makeDeckOfCards()
 
 //pick a random card and prevent it from being selected again--DONE!!
-let tempHand  =[]   
+let tempHand  =[] 
+let counter =0  
 
 function randCard(){
     let cardIndex = Math.floor(Math.random()*52);
@@ -57,6 +58,11 @@ function randCard(){
         randCard()
         } 
     tempHand.push(dealtCard);
+    counter++
+    if (counter===52){
+         alert ('shuffling new deck')
+            tempHand =[]
+    }
 }
 
 function dealInit (){
@@ -64,6 +70,8 @@ function dealInit (){
     setTimeout(dealerHand, 500);
     setTimeout(playerHand, 1000);
     setTimeout(dealerHand, 1500);
+    oneBtn.disabled=true
+    elevenBtn.disabled=true
 }
 
 function playReset (){
@@ -128,7 +136,9 @@ function playerHand (){
     if (changCardToInt[0]==='Jack'||changCardToInt[0]==='Queen'||changCardToInt[0]==='King'){
         playerTotal.push(10)
     } else if (changCardToInt[0]==='Ace'){
-        pAceValue()
+        pAceValue();
+        oneBtn.disabled=false;
+        elevenBtn.disabled=false;
     } else {
         playerTotal.push(Number(changCardToInt))
     }
@@ -141,6 +151,7 @@ function playerHand (){
         }
     if (playerCardTotal>=22 ||playerCardTotal===21 ){
         pHit.disabled=true;
+        dHit.disabled=true;
         }
 
     checkStatus()
@@ -159,27 +170,27 @@ function checkStatus (){
 }
 
 
-function oneElevenBtns (){
-    console.log (playerCardTotal)
-    console.log (elevenBtn)
-    console.log (playerCardTotal)
-    if (oneBtn===true){
-        playerTotal.push(1)
-    } else if (elevenBtn===true){
-        // playerTotal.push(11);
-        playerCardTotal.value+=11
-    }
-}
+// function oneElevenBtns (){
+//     console.log (playerCardTotal)
+//     console.log (elevenBtn)
+
+//     if (oneBtn=true){
+//         playerCardTotal.value ++
+//     } else if (elevenBtn===true){
+//         playerCardTotal.value+=11
+//     }
+// }
 
 function dAceValue(){
     // need to add conditions to change value from one to eleven if needed after value was entered into array as one
     if (dealerCardTotal===0 ||dealerCardTotal===10 ||dealerCardTotal>=6){
         dealerTotal.push(11);
-    } else {
+    } else if (dealerCardTotal ===11){
         dealerTotal.push(1);
+        }else {
+            dealerTotal.push(1);
         }
-    
-} 
+    } 
 
 function pAceValue(){
     
@@ -201,18 +212,31 @@ function winner(){
 
     }
 
-function compareScore (){
     
-    if (dealerCardTotal > playerCardTotal){
-            if (dealerCardTotal<21 && playerCardTotal <21){
-        return  dScore.value ++}
-        } else if (playerCardTotal > dealerCardTotal && dealerCardTotal<21 && playerCardTotal<21){
-            return pScore.value ++
+function compareScore (){
+console.log("compareScore")
+        if (playerCardTotal >=22){
+            return dScore.value ++
         } else if (dealerCardTotal >=22){
-        return pScore.value ++
-        } else if (playerCardTotal===21 && dealerCardTotal<21){
             return pScore.value ++
-        } else if (dealerCardTotal===playerCardTotal){
+        } 
+        if (dealerCardTotal<21 && playerCardTotal <21){
+            if (dealerCardTotal > playerCardTotal){
+            return  dScore.value ++
+            }
+        } 
+        if (dealerCardTotal<21 && playerCardTotal<21){
+            if (playerCardTotal > dealerCardTotal){
+                return pScore.value ++
+            }
+        } 
+        if (playerCardTotal===21 && dealerCardTotal<21){
+            return pScore.value ++
+        } 
+        if (playerCardTotal>=22 && playerCardTotal<21){
+            return  dScore.value ++
+        }
+         if (dealerCardTotal===playerCardTotal){
             alert ('tie')
         }
 }
@@ -224,7 +248,6 @@ function winScore(){
 //disabled based from stackoverflow/thewebdev
 startBtn.addEventListener('click', ()=> {
     dealInit(); 
-    startBtn.classList.add('grayLetters');
     startBtn.disabled=true})
 
 //stack overflow and tutorials point for "set timeout" help
@@ -237,38 +260,19 @@ playAgain.addEventListener('click', playReset)
 pHold.addEventListener('click', ()=> {pHit.disabled=true; checkStatus()})
 
 //one and elven buttons
-oneBtn.addEventListener('click', oneElevenBtns)
-elevenBtn.addEventListener('click',oneElevenBtns)
+oneBtn.addEventListener('click',()=> {playerCardTotal++})
+//e=> playercardtotal ++
+    
+elevenBtn.addEventListener('click', ()=> {playerCardTotal+=11})
+
 console.log(oneBtn);
 console.log(elevenBtn)
-
-
-//May not need a dealer hold button
-// dHold.addEventListener('click', ()=> {dHit.disabled=true})
-
-
 
 //********************Adding Cards */
 
 //need to get Ace figured out 
 //************************** */
 
-// let testAr = ['5 clubs', '9 hearts', 'ace spades']
-// let removeItem= testAr[1]
-// console.log(testAr)
-
-// let updateAr = testAr.splice(removeItem,1)
-// console.log(testAr)
-
-    //  if (changCardToInt[0]==='Ace'&& dealerCardTotal===10){
-    //             dealerTotal.push(11)
-    //     } else if (changCardToInt[0]==='Ace'&& dealerCardTotal<10){
-    //         //run aceQ function
-    //     }
-
-    //     function aceQ (one, eleven){
-    //         if 
-    //     }
 
     //Ace
     // if ace and dealer total>=6 
