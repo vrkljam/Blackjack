@@ -10,11 +10,46 @@ body{
     border: 2px solid black;
 } */
 
+#test {
+    height: 200px;
+    width: 60%;
+    margin: 0 auto;
+    background-color: red;
+    display: flex;
+    align-items:center;
+    justify-content: space-evenly;
+
+}
+.one{
+    background-color: blue;
+    
+}
+.two {
+    background-color:purple;
+}
+.three{
+    background-color: orange;
+}
+
+#testTwo {
+    height: 200px;
+    width: 60%;
+    background-color: aquamarine;
+    display: flex;
+    margin: 0 auto;
+}
+
+
+
 
 h1 {
     text-align: center;
 }
 
+h3 {
+    text-align: center;
+    font-size: x-large;
+}
 .symbols {
     font-size: 100px;
     color: rgba(38, 210, 38, 0.784);
