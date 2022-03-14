@@ -34,8 +34,12 @@ h1 {
 
 #startBtn{
     position: relative;
+    font-size: large;
+    border-radius: 10%;
+    text-shadow: 2px black;
     left:46%
  }
+
  #playAgain{
      position: relative;
      left:46%;
@@ -56,12 +60,13 @@ h2 {
     display:inline-block;
     margin-left: 200px;
     margin:5px;
-    justify-self: flex-end;
 }
 #dCardTotal {
     align-items: right;
     width: 50px;
     margin: 5px;
+    justify-content: center;
+    text-align: center;
 
 }
 #dealerContainer{
@@ -158,6 +163,7 @@ label[for=pcardTotal]{
     /* align-items: right; */
     margin: 5px;
     width: 50px;
+    text-align: center;
  }
 
 #playerContainer{

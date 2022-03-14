@@ -66,13 +66,12 @@ function randCard(){
     }
 }
 
+
 function dealInit (){
     playerHand(); 
     setTimeout(dealerHand, 500);
     setTimeout(playerHand, 1000);
     setTimeout(dealerHand, 1500);
-    oneBtn.disabled=true
-    elevenBtn.disabled=true
 }
 
 function playReset (){
@@ -82,8 +81,8 @@ function playReset (){
         document.querySelectorAll( '.cardBoxPlayer').forEach(items=>items.remove());
         startBtn.classList.remove('grayLetters');
         startBtn.disabled=false;
-        pHit.disabled=false;
-        dHit.disabled=false;
+        pHit.disabled=true;
+        dHit.disabled=true;
         dealerCardTotal=0;
         dCardTotal.value='';
         playerCardTotal=0;
@@ -98,7 +97,7 @@ function dealerHand (){
         div1.textContent =dealtCard;
         div1.classList.add('cardBoxDealer');
         div1.classList.add('shownCard');
-    
+
     let changCardToInt = dealtCard.split(" ",1);
     
     if (changCardToInt[0]==='Jack'||changCardToInt[0]==='Queen'||changCardToInt[0]==='King'){
@@ -109,6 +108,7 @@ function dealerHand (){
         dealerTotal.push(Number(changCardToInt));
     }
     
+    dHit.disabled=false;
     for (let i=0; i<dealerTotal.length; i++){
         dealerCardTotal +=Number(dealerTotal[i])
         dCardTotal.value=dealerCardTotal 
@@ -121,11 +121,15 @@ function dealerHand (){
     if (dealerCardTotal===21){
         winner()
     }  
+
     checkStatus()
 }
         
 function playerHand (){
+        oneBtn.disabled=true;
+    elevenBtn.disabled=true;
     randCard()
+
     
     let div = document.createElement ('div')
         playerCards.appendChild(div)
@@ -133,13 +137,12 @@ function playerHand (){
         div.classList.add('cardBoxPlayer')
     
     let changCardToInt = dealtCard.split(" ",1)
-    
+
+    if (changCardToInt[0]==='Ace'){
+        pAceValue();}
+
     if (changCardToInt[0]==='Jack'||changCardToInt[0]==='Queen'||changCardToInt[0]==='King'){
         playerTotal.push(10)
-    } else if (changCardToInt[0]==='Ace'){
-        // oneBtn.disabled=false;
-        // elevenBtn.disabled=false;
-        pAceValue();
     } else {
         playerTotal.push(Number(changCardToInt))
     }
@@ -150,10 +153,13 @@ function playerHand (){
             playerTotal=[]
         }
 
-    if (playerCardTotal>=22 ||playerCardTotal===21 ){
+    if (playerCardTotal>=22){
         pHit.disabled=true;
         dHit.disabled=true;
         }
+    
+    pHit.disabled=false;
+
     checkStatus()
     }
 
@@ -164,39 +170,46 @@ function checkStatus (){
 }
 
 function dAceValue(){
-    if (dealerCardTotal===0 ||dealerCardTotal===10 ||dealerCardTotal>=6){
-        dealerTotal.push(11);
-    } else if (dealerCardTotal ===11||dealerCardTotal<16){
+    if (dealerCardTotal===0 ||dealerCardTotal===10) {
+        dealerTotal.push(11); console.log('dct1',dealerCardTotal);
+    } else if (dealerCardTotal===6 || dealerCardTotal===7|| dealerCardTotal===8 || dealerCardTotal===9){
+        dealerTotal.push(11)
+    } else if (dealerCardTotal ===11){
+        dealerTotal.push(1); console.log('is this activated?');console.log('dct2',dealerCardTotal)
+    } else {
         dealerTotal.push(1);
-        }else {
-            dealerTotal.push(1);
-        }
+    }
     } 
 
 function pAceValue(){
         console.log ('checking aces')
         oneBtn.disabled=false;
-        elevenBtn.disabled=false;
-    if (playerCardTotal===0 ||playerCardTotal===10){
-        playerTotal.push(11);
-    } else {
-        playerTotal.push(1);
-    } 
+          elevenBtn.disabled=false;
+        if (playerCardTotal===0 ||playerCardTotal===10){
+            playerTotal.push(11);
+        } else {
+            playerTotal.push(1);
+        } 
 }   
 
 function winner(){
     // look up how to pop up a text box indicating winner
-        alert('Winner'   )
+        alert('Winner Dealer'   )
         if (dealerCardTotal!==playerCardTotal){
             dScore.value ++;
         } else {
             alert('its a tie')
         }
+    
     }
 
     
 function compareScore (){
 console.log("compareScore")
+           if (dScore.value===10 || pScore.value===10){
+            alert ('Winner!')
+            playReset()
+        }
         if (playerCardTotal >=22){
             return dScore.value ++
         } else if (dealerCardTotal >=22){
@@ -221,6 +234,8 @@ console.log("compareScore")
          if (dealerCardTotal===playerCardTotal){
             alert ('tie')
         }
+     
+        console.log('end of this')
 }
 
 function winScore(){
@@ -254,18 +269,3 @@ console.log(elevenBtn)
 
 //need to get Ace figured out 
 //************************** */
-
-
-    //Ace
-    // if ace and dealer total>=6 
-    //then ace = 11
-
-    //if dealer total <=5
-    //then ace =1
-    //if 
-
-    //if ace and dealer = 0
-    // then ace = 1
-
-    //
-    //Scoring
