@@ -3,10 +3,6 @@ body{
     background-image: radial-gradient(lightgreen,darkgreen);
     background-size: contain;
 }
-/* .cardSpot{
-    background-color: lightgray;
-    border: 2px solid black;
-} */
 
 h1 {
     text-align: center;
@@ -50,7 +46,7 @@ h2 {
     font-size: x-large;
     /* margin: 0; */
 }
-section{
+#forDealer{
     display: flex;
     justify-content: center;
     margin: 0;
@@ -64,7 +60,7 @@ section{
 }
 #dCardTotal {
     align-items: right;
-    width: 10%;
+    width: 50px;
     margin: 5px;
 
 }
@@ -91,7 +87,7 @@ section{
 
 #dealerCardArea {
     height: 200px;
-    width: 60%;
+    width: 35%;
     margin-right: 0;
     background-color: red;
 }
@@ -121,7 +117,7 @@ section{
     align-items: center;
     justify-content: center;
 }
-/* ************************ !!*/
+/* ********************************************** !!*/
 label[for=dScore]{
     background-color: steelblue;
     color: goldenrod;
@@ -137,36 +133,31 @@ label[for=dScore]{
 
 #playerTopSections{
     display: flex;
-    margin-left: 100px;
+    justify-content: center;
+   /* padding: 10px; */
 }
-label[for=pcardTotal]{
-    display:inline-block;
-    margin: 5px;
-    align-self:baseline;
-    justify-self: flex-end;
-} 
-
 #aceChoice{
     margin: 10px;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 200px;
 }
 #one{
-    height: 100%;
+
     margin-right: 10px;
     margin-left: 5px;
 }
 #eleven{
-    height: 100%;
+  
     margin: 0;
 }
+label[for=pcardTotal]{
+    /* display:inline-block; */
+    margin: 5px;
+
+} 
 
 #pCardTotal{
-    align-items: right;
+    /* align-items: right; */
     margin: 5px;
-    width: 10%;
-    width: 200px;
+    width: 50px;
  }
 
 #playerContainer{
@@ -201,7 +192,7 @@ label[for=pcardTotal]{
     }
 #playerCardArea {
     height: 200px;
-    width: 60%;
+    width: 35%;
     background-color: aquamarine;
     margin: 0;
 }
@@ -233,19 +224,6 @@ label[for=pScore]{
     width: 40%;
     text-align: center;
 }
-
-
-/* 
-#playerCards {
-   flex:1;
-    /* width: 50%; */
-    /* background-color:white;
-    color: rgb(38, 21, 230);
-    margin-right: auto;
-    margin-left: auto;
-    flex-basis: 33%;
-    margin: auto; */
-/* } */ 
 
 .cardBoxPlayer{
     height:90px;
