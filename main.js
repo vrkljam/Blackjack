@@ -7,11 +7,12 @@ let dealtCard=[];
 let king =10
 let queen = 10
 let jack =10
-let cardArea = document.querySelector('#cardArea')
-// let cardCheck = document.querySelector('.cardCheck')
+
 let startBtn = document.querySelector('#startBtn')
+let winnerArea =document.querySelector('#winnerArea')
 let dealerCards =document.querySelector('#dealerCards');
 let playerCards = document.querySelector('#playerCards');
+let alerts = document.querySelector('#alerts')
 let dHit = document.querySelector('#dHit')
 let dHold = document.querySelector('#dHold')
 let pHit = document.querySelector('#pHit')
@@ -61,7 +62,7 @@ function randCard(){
     tempHand.push(dealtCard);
     counter++
     if (counter===52){
-         alert ('shuffling new deck')
+         alerts.textContent='shuffling new deck'
             tempHand =[]
             counter=0
     }
@@ -89,6 +90,7 @@ function playReset (){
         playerCardTotal=0;
         pCardTotal.value='';
         cardCount=0;
+        alerts.textContent =''
     }
 
 function dealerHand (){
@@ -202,11 +204,11 @@ function pAceValue(){
 
 function winner(){
     // look up how to pop up a text box indicating winner
-        alert('Winner Dealer'   )
+        alerts.textContent ='Dealer has blackjack'
         if (dealerCardTotal!==playerCardTotal){
             dScore.value ++;
         } else {
-            alert('its a tie')
+            alerts.textContent ='its a push'
         }
     }
 
@@ -216,26 +218,31 @@ console.log("compareScore")
         if (playerCardTotal >=22){
             return dScore.value ++
         } else if (dealerCardTotal >=22){
+            alerts.textContent ='Player wins this hand'
             return pScore.value ++
         } 
         if (dealerCardTotal<21 && playerCardTotal <21){
             if (dealerCardTotal > playerCardTotal){
+                alerts.textContent ='Dealer wins this hand'
             return  dScore.value ++
             }
         } 
         if (dealerCardTotal<21 && playerCardTotal<21){
             if (playerCardTotal > dealerCardTotal){
+                alerts.textContent ='Player wins this hand'
                 return pScore.value ++
             }
         } 
         if (playerCardTotal===21 && dealerCardTotal<21){
+            alerts.textContent ='Player wins this hand'
             return pScore.value ++
         } 
         if (playerCardTotal>=22 && playerCardTotal<21){
+            alerts.textContent ='Dealer wins this hand'
             return  dScore.value ++
         }
          if (dealerCardTotal===playerCardTotal){
-            alert ('tie')
+            alerts.textContent ='its a push'
         }
 
 }
@@ -243,9 +250,12 @@ console.log("compareScore")
 function gameWinner(){
     console.log('gamewinner')
     if (dScore.value>= 10 && pScore.value<10){
-        alert ('Dealer Won');
+
+        alerts.textContent = 'Dealer got to 10 wins first!' 
     } else if (pScore.value>= 10 && dScore.value<10){
-        alert ('Player Won');
+
+        alerts.textContent = 'Player got to 10 wins first!' 
+
     console.log('end of this')
     }
 }

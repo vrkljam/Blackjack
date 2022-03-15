@@ -16,6 +16,7 @@
         <p class="symbols" id="diamonds">♦</p>
     </div>
 
+    
     <button id="startBtn">Deal</button>
     <button id="playAgain">Reset</button>
     
@@ -23,28 +24,29 @@
         
         <h2>Dealer</h2>
         <section id ="forDealer">
-        <label for="dCardTotal" id="dCardTotalLabel">Dealer Card Total</label>
-        <input type="text" placeholder='' name="cardTotal" id="dCardTotal">
+            <label for="dCardTotal" id="dCardTotalLabel">Dealer Card Total</label>
+            <input type="text" placeholder='' name="cardTotal" id="dCardTotal">
         </section>
         <div id="dealerContainer">
             <div id="leftSideDealer">
-            <button id="dHit">Hit</button>
+                <button id="dHit">Hit</button>
             </div>
-
+            
             <div id = "dealerCardArea">
                 <div id="dealerCards"></div>
-
+                
             </div>
             <div id="rightSideDealer">
                 <label for="dScore" id ='dealerWinLabel'>Dealer Wins</label>
                 <input type="text" placeholder='' name="dScore" id="dScore">
             </div>
-    </div>
-
-<h2>Player</h2>
-<div id ='playerTopSections'>
-<!-- <section> -->
-    <section id="aceChoice"> Ace Choice:
+        </div>
+        <p id = 'alerts'>Message: </p>
+        
+        <h2>Player</h2>
+        <div id ='playerTopSections'>
+            <!-- <section> -->
+                <section id="aceChoice"> Ace Choice:
         <button id="one">One</button>
         <button id="eleven">Eleven</button>
     <!-- </section>

@@ -31,7 +31,19 @@ h1 {
     bottom:50px;
     right:30px;
 }
+#alerts{
 
+    text-align: center;
+    margin: 10px auto;
+    height: 20px;
+    /* width:150px; */
+    color:red;
+    font-size: large;
+}
+.winner{
+    background-color: white;
+    color: purple;
+}
 #startBtn{
     position: relative;
     font-size: large;
@@ -48,7 +60,7 @@ h1 {
 h2 {
     text-align: center;
     font-size: x-large;
-    /* margin: 0; */
+margin: 0 auto;
 }
 #forDealer{
     display: flex;
