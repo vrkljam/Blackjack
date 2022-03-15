@@ -31,7 +31,8 @@ let elevenBtn= document.querySelector('#eleven')
 let shownCard = document.querySelector('.shownCard')
 let dScore= document.querySelector('#dScore')
 let pScore= document.querySelector('#pScore')
-let cardCount=0;
+let dCardCount=0;
+let pCardCount=0;
 
 
 
@@ -40,6 +41,7 @@ let cardCount=0;
 function makeDeckOfCards (){
     for (let i=0; i<suits.length; i++){
         for(let j=0; j<cardValues.length; j++){
+  
             let theCard = (`${cardValues[j]} ${suits[i]}`)
             newDeck.push(theCard)
         }
@@ -61,7 +63,7 @@ function randCard(){
         } 
     tempHand.push(dealtCard);
     counter++
-    if (counter===52){
+    if (counter===104){
          alerts.textContent='shuffling new deck'
             tempHand =[]
             counter=0
@@ -70,6 +72,8 @@ function randCard(){
 
 
 function dealInit (){
+        oneBtn.disabled=true;
+    elevenBtn.disabled=true;
     playerHand(); 
     setTimeout(dealerHand, 500);
     setTimeout(playerHand, 1000);
@@ -77,7 +81,7 @@ function dealInit (){
 }
 
 function playReset (){
-    // based on info from stack overflow
+    // some info based on stack overflow
     gameWinner()
         document.querySelectorAll( '.cardBoxDealer').forEach(items=>items.remove());
         document.querySelectorAll( '.cardBoxPlayer').forEach(items=>items.remove());
@@ -125,21 +129,22 @@ function dealerHand (){
     if (dealerCardTotal>=17 || dealerCardTotal>=22){
         dHit.disabled=true
     }
-    if (dealerCardTotal===21){
+    dCardCount++
+    if (dCardCount>=2){
+        div1.classList.remove('hidden')
+    }
+    if (dealerCardTotal===21 && dCardCount===2){
         winner()
     }  
-cardCount++
-if (cardCount>=2){
-    div1.classList.remove('hidden')
-}
     checkStatus()
 }
         
 function playerHand (){
-        oneBtn.disabled=true;
-    elevenBtn.disabled=true;
-    randCard()
 
+    // oneBtn.disabled=true;
+    // elevenBtn.disabled=true;
+
+    randCard()
     
     let div = document.createElement ('div')
         playerCards.appendChild(div)
@@ -162,6 +167,8 @@ function playerHand (){
             pCardTotal.value=playerCardTotal 
             playerTotal=[]
         }
+
+    pCardCount++
 
     if (playerCardTotal>=22){
         pHit.disabled=true;
@@ -193,22 +200,28 @@ function dAceValue(){
 
 function pAceValue(){
         console.log ('checking aces')
+
         oneBtn.disabled=false;
-          elevenBtn.disabled=false;
-        if (playerCardTotal===0 ||playerCardTotal===10){
-            playerTotal.push(11);
+        elevenBtn.disabled=false;
+
+        if (playerCardTotal===0 ||playerCardTotal===10) {
+            playerTotal.push(11); 
+        } else if (playerCardTotal===6 || playerCardTotal===7|| playerCardTotal===8 || playerCardTotal===9){
+            playerTotal.push(11)
+        } else if (playerCardTotal===11){
+            playerTotal.push(1); 
         } else {
             playerTotal.push(1);
-        } 
-}   
+        }
+    }
 
-function winner(){
-    // look up how to pop up a text box indicating winner
+function winner(){  
+        console.log('winner function')
         alerts.textContent ='Dealer has blackjack'
         if (dealerCardTotal!==playerCardTotal){
             dScore.value ++;
         } else {
-            alerts.textContent ='its a push'
+            alerts.textContent =`It's a push`
         }
     }
 
@@ -216,7 +229,8 @@ function compareScore (){
 console.log("compareScore")
 
         if (playerCardTotal >=22){
-            return dScore.value ++
+            alerts.textContent ='Dealer wins this hand'
+            return dScore.value ++;
         } else if (dealerCardTotal >=22){
             alerts.textContent ='Player wins this hand'
             return pScore.value ++
@@ -234,8 +248,12 @@ console.log("compareScore")
             }
         } 
         if (playerCardTotal===21 && dealerCardTotal<21){
+            if (pCardCount===2){
+                alerts.textContent ='Player got BlackJack and wins this hand'
+            } else {
             alerts.textContent ='Player wins this hand'
             return pScore.value ++
+            }
         } 
         if (playerCardTotal>=22 && playerCardTotal<21){
             alerts.textContent ='Dealer wins this hand'
