@@ -30,6 +30,7 @@ let elevenBtn= document.querySelector('#eleven')
 let shownCard = document.querySelector('.shownCard')
 let dScore= document.querySelector('#dScore')
 let pScore= document.querySelector('#pScore')
+let cardCount=0;
 
 
 
@@ -76,7 +77,7 @@ function dealInit (){
 
 function playReset (){
     // based on info from stack overflow
- 
+    gameWinner()
         document.querySelectorAll( '.cardBoxDealer').forEach(items=>items.remove());
         document.querySelectorAll( '.cardBoxPlayer').forEach(items=>items.remove());
         startBtn.classList.remove('grayLetters');
@@ -87,9 +88,11 @@ function playReset (){
         dCardTotal.value='';
         playerCardTotal=0;
         pCardTotal.value='';
+        cardCount=0;
     }
-    
+
 function dealerHand (){
+    
     randCard()
         
     let div1 = document.createElement ('div');
@@ -97,6 +100,7 @@ function dealerHand (){
         div1.textContent =dealtCard;
         div1.classList.add('cardBoxDealer');
         div1.classList.add('shownCard');
+        div1.classList.add('hidden');
 
     let changCardToInt = dealtCard.split(" ",1);
     
@@ -109,6 +113,7 @@ function dealerHand (){
     }
     
     dHit.disabled=false;
+
     for (let i=0; i<dealerTotal.length; i++){
         dealerCardTotal +=Number(dealerTotal[i])
         dCardTotal.value=dealerCardTotal 
@@ -121,7 +126,10 @@ function dealerHand (){
     if (dealerCardTotal===21){
         winner()
     }  
-
+cardCount++
+if (cardCount>=2){
+    div1.classList.remove('hidden')
+}
     checkStatus()
 }
         
@@ -179,7 +187,7 @@ function dAceValue(){
     } else {
         dealerTotal.push(1);
     }
-    } 
+} 
 
 function pAceValue(){
         console.log ('checking aces')
@@ -200,16 +208,11 @@ function winner(){
         } else {
             alert('its a tie')
         }
-    
     }
 
-    
 function compareScore (){
 console.log("compareScore")
-           if (dScore.value===10 || pScore.value===10){
-            alert ('Winner!')
-            playReset()
-        }
+
         if (playerCardTotal >=22){
             return dScore.value ++
         } else if (dealerCardTotal >=22){
@@ -234,14 +237,18 @@ console.log("compareScore")
          if (dealerCardTotal===playerCardTotal){
             alert ('tie')
         }
-     
-        console.log('end of this')
-}
-
-function winScore(){
 
 }
 
+function gameWinner(){
+    console.log('gamewinner')
+    if (dScore.value>= 10 && pScore.value<10){
+        alert ('Dealer Won');
+    } else if (pScore.value>= 10 && dScore.value<10){
+        alert ('Player Won');
+    console.log('end of this')
+    }
+}
 //disabled based from stackoverflow/thewebdev
 startBtn.addEventListener('click', ()=> {
     dealInit(); 

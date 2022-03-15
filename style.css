@@ -82,6 +82,9 @@ h2 {
     margin-right: 0;
     align-items: center;
     justify-content: center;
+    border: 4px solid rgba(52, 145, 52, 0.9);
+    border-radius: 20%;
+    border-right: none;
 }
 #dHit {
     height: 50%;
@@ -97,6 +100,10 @@ h2 {
     width: 35%;
     margin-right: 0;
     /* background-color: red; */
+    border: 4px solid rgba(52, 145, 52, 0.9);
+    border-radius: 20%;
+    border-right: none;
+    border-left: none;
 }
 #dealerCards{
     display: flex;
@@ -108,11 +115,21 @@ h2 {
     width: 45px;
     border: 3px solid black;
     padding: 2px;
+    margin: 1px;
     background-color: white;
-    font-size:x-large;
+    font-size:large;
     border-radius: 10%;
+    text-align: center;
+    
     
 }
+.hidden {
+    color: rgba(0,0,0,0);
+
+    background-image: url('images/playing-card-g94b04bb74_640.jpg');
+}
+
+
 
 #rightSideDealer{
     display: flex;
@@ -123,6 +140,9 @@ h2 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border: 4px solid rgba(52, 145, 52, 0.9);
+    border-radius: 20%;
+    border-left: none;
 }
 /* ********************************************** !!*/
 label[for=dScore]{
@@ -132,7 +152,7 @@ label[for=dScore]{
 
 #dScore{
     /* border: 2px dotted green; */
-    color: green;
+    color:red;
     width: 40%;
     text-align: center;
 }
@@ -183,6 +203,9 @@ label[for=pcardTotal]{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    border: 4px solid rgba(52, 145, 52, 0.9);
+    border-radius: 20%;
+    border-right: none;
 }
 #pHit {
     margin:10%;
@@ -205,6 +228,10 @@ label[for=pcardTotal]{
     width: 35%;
     /* background-color: aquamarine; */
     margin: 0;
+    border: 4px solid rgba(52, 145, 52, 0.9);
+    border-radius: 20%;
+    border-right: none;
+    border-left: none;
 }
 #playerCards{
     display: flex;
@@ -221,6 +248,9 @@ label[for=pcardTotal]{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border: 4px solid rgba(52, 145, 52, 0.9);
+    border-radius: 20%;
+    border-left: none;
 }
 
 label[for=pScore]{
@@ -230,7 +260,7 @@ label[for=pScore]{
 
 #pScore{
     /* border: 2px dotted green; */
-    color: green;
+    color: red;
     width: 40%;
     text-align: center;
 }
@@ -248,9 +278,6 @@ label[for=pScore]{
 }
 
 #playerName {
-}
-.hidden{
-    opacity:0;
 }
 .grayLetters{
     color:lightgray;
