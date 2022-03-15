@@ -40,9 +40,9 @@ h1 {
     color:red;
     font-size: large;
 }
-.winner{
+.winnerAlert{
     background-color: white;
-    color: purple;
+    color:gold;
 }
 #startBtn{
     position: relative;
@@ -132,8 +132,6 @@ margin: 0 auto;
     font-size:large;
     border-radius: 10%;
     text-align: center;
-    
-    
 }
 .hidden {
     color: rgba(0,0,0,0);
@@ -280,12 +278,13 @@ label[for=pScore]{
 .cardBoxPlayer{
     height:90px;
     width: 45px;
-    /* display: inline-block; */
     border: 3px solid black;
+    padding: 2px;
+    margin: 1px;
     background-color: white;
-    /* background-image: url("images/playing-card-g94b04bb74_640.jpg"); */
-    font-size:x-large;
+    font-size:large;
     border-radius: 10%;
+    text-align: center;
     
 }
 

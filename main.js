@@ -13,6 +13,7 @@ let winnerArea =document.querySelector('#winnerArea')
 let dealerCards =document.querySelector('#dealerCards');
 let playerCards = document.querySelector('#playerCards');
 let alerts = document.querySelector('#alerts')
+let winnerAlert = document.querySelector('.winneralert')
 let dHit = document.querySelector('#dHit')
 let dHold = document.querySelector('#dHold')
 let pHit = document.querySelector('#pHit')
@@ -61,10 +62,14 @@ function randCard(){
     if (isCard ===true){
         randCard()
         } 
+    
     tempHand.push(dealtCard);
+    
     counter++
-    if (counter===104){
-         alerts.textContent='shuffling new deck'
+
+    if (counter===52){
+        alert ('shuffle deck')
+        //  alerts.textContent='shuffling new deck'
             tempHand =[]
             counter=0
     }
@@ -93,7 +98,8 @@ function playReset (){
         dCardTotal.value='';
         playerCardTotal=0;
         pCardTotal.value='';
-        cardCount=0;
+        dCardCount=0;
+        pCardCount=0;
         alerts.textContent =''
     }
 
@@ -141,9 +147,6 @@ function dealerHand (){
         
 function playerHand (){
 
-    // oneBtn.disabled=true;
-    // elevenBtn.disabled=true;
-
     randCard()
     
     let div = document.createElement ('div')
@@ -169,11 +172,6 @@ function playerHand (){
         }
 
     pCardCount++
-
-    if (playerCardTotal>=22){
-        pHit.disabled=true;
-        dHit.disabled=true;
-        }
     
     pHit.disabled=false;
 
@@ -181,9 +179,13 @@ function playerHand (){
     }
 
 function checkStatus (){
-    if (pHit.disabled===true && dHit.disabled===true){
+    if (playerCardTotal>=22){
+        pHit.disabled=true;
+        compareScore();
+    } else if (pHit.disabled===true && dHit.disabled===true){
     compareScore() 
-    }   
+    }  
+    gameWinner() 
 }
 
 function dAceValue(){
@@ -230,6 +232,7 @@ console.log("compareScore")
 
         if (playerCardTotal >=22){
             alerts.textContent ='Dealer wins this hand'
+            dHit.disabled=true;
             return dScore.value ++;
         } else if (dealerCardTotal >=22){
             alerts.textContent ='Player wins this hand'
@@ -260,22 +263,42 @@ console.log("compareScore")
             return  dScore.value ++
         }
          if (dealerCardTotal===playerCardTotal){
-            alerts.textContent ='its a push'
+            alerts.textContent =`It's a push`
         }
 
 }
 
 function gameWinner(){
     console.log('gamewinner')
-    if (dScore.value>= 10 && pScore.value<10){
-
-        alerts.textContent = 'Dealer got to 10 wins first!' 
-    } else if (pScore.value>= 10 && dScore.value<10){
-
-        alerts.textContent = 'Player got to 10 wins first!' 
-
-    console.log('end of this')
+    if (dScore.value>= 2 && pScore.value<1){
+        alerts.classList.add('winnerAlert')
+        alerts.textContent=''
+       alerts.textContent = 'Dealer got to 10 wins first!' 
+    } else if (pScore.value>= 2 && dScore.value<1){
+        alerts.classList.add('winnerAlert')
+        alerts.textContent=''
+        winnerAlert.textContent = 'Player got to 10 wins first!' 
     }
+
+    gameReset()
+}
+
+function gameReset(){
+ dScore.value=0
+ pScore.value=0
+ document.querySelectorAll( '.cardBoxDealer').forEach(items=>items.remove());
+ document.querySelectorAll( '.cardBoxPlayer').forEach(items=>items.remove());
+ startBtn.classList.remove('grayLetters');
+ startBtn.disabled=false;
+ pHit.disabled=true;
+ dHit.disabled=true;
+ dealerCardTotal=0;
+ dCardTotal.value='';
+ playerCardTotal=0;
+ pCardTotal.value='';
+ dCardCount=0;
+ pCardCount=0;
+ alerts.textContent =''
 }
 //disabled based from stackoverflow/thewebdev
 startBtn.addEventListener('click', ()=> {
