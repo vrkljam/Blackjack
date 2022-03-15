@@ -78,7 +78,7 @@ h2 {
     display: flex;
     height: 200px;
     width: 10%;
-    background-color: crimson;
+    /* background-color: crimson; */
     margin-right: 0;
     align-items: center;
     justify-content: center;
@@ -91,10 +91,12 @@ h2 {
 }
 
 #dealerCardArea {
+    display: flex;
+    justify-content: center;
     height: 200px;
     width: 35%;
     margin-right: 0;
-    background-color: red;
+    /* background-color: red; */
 }
 #dealerCards{
     display: flex;
@@ -106,7 +108,7 @@ h2 {
     width: 45px;
     border: 3px solid black;
     padding: 2px;
-    background-color: deepskyblue;
+    background-color: white;
     font-size:x-large;
     border-radius: 10%;
     
@@ -116,7 +118,7 @@ h2 {
     display: flex;
     height: 200px;
     width: 10%;
-    background-color: crimson;
+    /* background-color: crimson; */
     margin-left: 0;
     flex-direction: column;
     align-items: center;
@@ -124,12 +126,12 @@ h2 {
 }
 /* ********************************************** !!*/
 label[for=dScore]{
-    background-color: steelblue;
-    color: goldenrod;
+    /* background-color: steelblue; */
+    color: red;
 }
 
 #dScore{
-    border: 2px dotted green;
+    /* border: 2px dotted green; */
     color: green;
     width: 40%;
     text-align: center;
@@ -176,7 +178,7 @@ label[for=pcardTotal]{
     display: flex;
     height: 200px;
     width: 10%;
-    background-color: crimson;
+    /* background-color: crimson; */
     margin-right: 0;
     align-items: center;
     justify-content: center;
@@ -197,9 +199,11 @@ label[for=pcardTotal]{
     border-radius: 10%;
     }
 #playerCardArea {
+    display: flex;
+    justify-content: center;
     height: 200px;
     width: 35%;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     margin: 0;
 }
 #playerCards{
@@ -212,7 +216,7 @@ label[for=pcardTotal]{
     display: flex;
     height: 200px;
     width: 10%;
-    background-color: crimson;
+    /* background-color: crimson; */
     margin-left: 0;
     flex-direction: column;
     align-items: center;
@@ -220,12 +224,12 @@ label[for=pcardTotal]{
 }
 
 label[for=pScore]{
-    background-color: steelblue;
-    color: goldenrod;
+    /* background-color: steelblue; */
+    color: red;
 }
 
 #pScore{
-    border: 2px dotted green;
+    /* border: 2px dotted green; */
     color: green;
     width: 40%;
     text-align: center;
@@ -236,7 +240,7 @@ label[for=pScore]{
     width: 45px;
     /* display: inline-block; */
     border: 3px solid black;
-    background-color: gold;
+    background-color: white;
     /* background-image: url("images/playing-card-g94b04bb74_640.jpg"); */
     font-size:x-large;
     border-radius: 10%;
