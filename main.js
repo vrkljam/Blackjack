@@ -36,6 +36,8 @@ let dCardCount=0;
 let pCardCount=0;
 let newGameBtn = document.querySelector('#newGameBtn')
 let tempCard
+let tempText
+
 
 
 // console.log(suits[0])
@@ -128,6 +130,7 @@ function playReset (){
     }
     
     dHit.disabled=false;
+    dCardTotal.classList.add('totalHidden')
     
     for (let i=0; i<dealerTotal.length; i++){
         dealerCardTotal +=Number(dealerTotal[i])
@@ -141,6 +144,8 @@ function playReset (){
 
     if (dCardCount===1){
         tempCard=div1
+        tempText= tempCard.innerText
+        tempCard.innerText=''
     }
 
     checkStatus()
@@ -188,6 +193,8 @@ function checkStatus (){
 
     if (pHit.disabled===true){
         tempCard.classList.remove('hidden')
+        dCardTotal.classList.remove('totalHidden')
+        tempCard.innerText=tempText
     }
     if (playerCardTotal>=22){
         pHit.disabled=true;

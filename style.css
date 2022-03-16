@@ -139,9 +139,6 @@ h2 {
 }
 
 .hidden {
-    font-size: 0;
-
-    /* color: rgba(100,0,0,0); */
     background-image: url('images/playing-card-g94b04bb74_640.jpg');
 }
 #rightSideDealer{
@@ -347,7 +344,7 @@ label[for=pScore]{
         border: 2px solid black;
         padding: 2px;
         margin: 1px;
-        font-size:medium;
+        font-size:.76em;
         }
     #rightSideDealer{
         height: 150px;
@@ -408,6 +405,6 @@ label[for=pScore]{
         height:60px;
         width: 30px;
         border: 2px solid black;
-        font-size:medium;
+        font-size:.76em;
         }
 }
