@@ -58,7 +58,8 @@ h1 {
  }
  #newGameBtn{
      position: relative;
-     left:46%;
+     left:58%;
+     font-weight: bold;
  }
 
 h2 {

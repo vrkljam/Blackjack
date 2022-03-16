@@ -140,22 +140,7 @@ function dealerHand (){
         dCardCount++
         console.log (dCardCount)
     }
-//     if (dealerCardTotal>=17 || dealerCardTotal>=22){
-//         if (pHit.disabled===true){
-//             dHit.disabled=true
-//         }
-//     }
-    
-    
-//     if (dCardCount>=2){
-//         div1.classList.remove('hidden')
-//     }
-//     if (dealerCardTotal===21 && dCardCount===2){
-//         winner()
-//     } 
-//     if (pHit.disabled===true && dCardCount>=2){ 
-//     checkStatus()
-// }
+
 checkStatus()
 }
 
@@ -196,11 +181,7 @@ function playerHand (){
 }
 
 function checkStatus (){
-    // let firstCard =document.querySelectorAll('.hidden')
-    // console.log(firstCard[0])
-    // if (pHit.disabled=true){
-    //     firstCard[0].classList.remove('hidden')
-    // }
+
     console.log('checkstatus')
     if (playerCardTotal>=22){
         pHit.disabled=true;
@@ -338,14 +319,6 @@ function newGame(){
        pCardCount=0;
 }
 
-// function gameReset(){
-  
-//  startBtn.classList.remove('grayLetters');
-//  startBtn.disabled=false;
-//  pHit.disabled=true;
-//  dHit.disabled=true;
-
-// }
 
 //disabled based from stackoverflow/thewebdev
 startBtn.addEventListener('click', ()=> {
