@@ -36,8 +36,7 @@ let dCardCount=0;
 let pCardCount=0;
 let newGameBtn = document.querySelector('#newGameBtn')
 let tempCard
-let removed
-let div = document.querySelector('.removeThis')
+
 
 // console.log(suits[0])
 
@@ -111,20 +110,12 @@ function playReset (){
     let div1 = document.createElement ('div');
         dealerCards.appendChild(div1);
         div1.textContent =dealtCard;
-        console.log ()
+
     if (dealtCard.split(" ")[1]==='♥︎'||dealtCard.split(" ")[1]==='♦︎'){
         div1.style.color='red'
     }
-        // if (div1.style.color='red'){
-        //     console.log('this is red')
-        // }
-
         div1.classList.add('cardBoxDealer');
-        // div1.classList.add('shownCard');
-        // if 
         div1.classList.add('hidden');
-    
-        console.log(div1)
 
     let changCardToInt = dealtCard.split(" ",1);
     
@@ -195,11 +186,8 @@ function playerHand (){
 
 function checkStatus (){
 
-    console.log('checkstatus')
-
     if (pHit.disabled===true){
         tempCard.classList.remove('hidden')
-        console.log(tempCard)
     }
     if (playerCardTotal>=22){
         pHit.disabled=true;
@@ -217,18 +205,17 @@ function checkStatus (){
 
 function dAceValue(){
     if (dealerCardTotal===0 ||dealerCardTotal===10) {
-        dealerTotal.push(11); console.log('dct1',dealerCardTotal);
+        dealerTotal.push(11); 
     } else if (dealerCardTotal===6 || dealerCardTotal===7|| dealerCardTotal===8 || dealerCardTotal===9){
         dealerTotal.push(11)
     } else if (dealerCardTotal ===11){
-        dealerTotal.push(1); console.log('is this activated?');console.log('dct2',dealerCardTotal)
+        dealerTotal.push(1); 
     } else {
         dealerTotal.push(1);
     }
 } 
 
 function pAceValue(){
-        console.log ('checking aces')
 
         oneBtn.disabled=false;
         elevenBtn.disabled=false;
@@ -245,8 +232,7 @@ function pAceValue(){
     }
 
 function winner(){  
-        console.log('winner function')
-        alerts.textContent ='Dealer has blackjack'
+           alerts.textContent ='Dealer has blackjack'
         if (dealerCardTotal!==playerCardTotal){
             dScore.value ++;
         } else {
@@ -255,7 +241,6 @@ function winner(){
     }
 
 function compareScore (){
-console.log("compareScore")
 
         if (playerCardTotal >=22){
             alerts.textContent ='Dealer wins this hand'
@@ -310,13 +295,13 @@ console.log("compareScore")
 }
 
 function gameWinner(){
-    console.log('gamewinner')
-    if (dScore.value>= 5){
+
+    if (dScore.value>= 10){
         alerts.classList.add('winnerAlert');
         alerts.textContent='';
         alerts.textContent = 'Dealer got to 10 wins first!' ;
 
-    } else if (pScore.value>= 5){
+    } else if (pScore.value>= 10){
         alerts.classList.add('winnerAlert');
         alerts.textContent='';
        alerts.textContent = 'Player got to 10 wins first!' ;
@@ -339,6 +324,8 @@ function newGame(){
        pCardCount=0;
 }
 
+
+//**********Eventlisteners */
 
 //disabled based from stackoverflow/thewebdev
 startBtn.addEventListener('click', ()=> {
