@@ -35,6 +35,9 @@ let pScore= document.querySelector('#pScore')
 let dCardCount=0;
 let pCardCount=0;
 let newGameBtn = document.querySelector('#newGameBtn')
+let tempCard
+let removed
+let div = document.querySelector('.removeThis')
 
 // console.log(suits[0])
 
@@ -101,9 +104,9 @@ function playReset (){
         alerts.textContent =''
     }
 
-function dealerHand (){
-    
-    randCard()
+    function dealerHand (){
+        
+        randCard()
         
     let div1 = document.createElement ('div');
         dealerCards.appendChild(div1);
@@ -112,10 +115,15 @@ function dealerHand (){
     if (dealtCard.split(" ")[1]==='♥︎'||dealtCard.split(" ")[1]==='♦︎'){
         div1.style.color='red'
     }
-        
+        // if (div1.style.color='red'){
+        //     console.log('this is red')
+        // }
+
         div1.classList.add('cardBoxDealer');
-        div1.classList.add('shownCard');
-        // div1.classList.add('hidden');
+        // div1.classList.add('shownCard');
+        // if 
+        div1.classList.add('hidden');
+    
         console.log(div1)
 
     let changCardToInt = dealtCard.split(" ",1);
@@ -129,27 +137,26 @@ function dealerHand (){
     }
     
     dHit.disabled=false;
-
-    // dCardTotal.classList.add('totalHidden')
     
     for (let i=0; i<dealerTotal.length; i++){
         dealerCardTotal +=Number(dealerTotal[i])
         dCardTotal.value=dealerCardTotal 
         dealerTotal=[]
         dCardCount++
-        console.log (dCardCount)
     }
-    // if (dealerCardTotal>=17 || dealerCardTotal>=22){
-    //     if (pHit.disabled===true){
-    //     dHit.disabled=true
-    //     compareScore()
-    //     }
-    // }
+    if (dCardCount>=2){
+        div1.classList.remove('hidden')
+    }
 
+    if (dCardCount===1){
+        tempCard=div1
+    }
 
-checkStatus()
-}
+    checkStatus()
 
+    }
+
+    
 function playerHand (){
     
     randCard()
@@ -189,19 +196,21 @@ function playerHand (){
 function checkStatus (){
 
     console.log('checkstatus')
+
+    if (pHit.disabled===true){
+        tempCard.classList.remove('hidden')
+        console.log(tempCard)
+    }
     if (playerCardTotal>=22){
         pHit.disabled=true;
         compareScore();
     }  else if (dealerCardTotal>=17 || dealerCardTotal>=22){
         if (pHit.disabled===true){
-        dHit.disabled=true
-        compareScore()
+            dHit.disabled=true
+            compareScore()
         }
-    // else if (dealerCardTotal>=17 || dealerCardTotal>=22){
-    //     dHit.disabled=true
-    //     compareScore()
     } else if(pHit.disabled===true && dHit.disabled===true){
-    compareScore() 
+        compareScore() 
     }  
     gameWinner() 
 }

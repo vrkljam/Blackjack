@@ -137,11 +137,13 @@ h2 {
 .totalHidden{
     opacity: 0;
 }
+
 .hidden {
-    color: rgba(0,0,0,0);
+    font-size: 0;
+
+    /* color: rgba(100,0,0,0); */
     background-image: url('images/playing-card-g94b04bb74_640.jpg');
 }
-
 #rightSideDealer{
     display: flex;
     height: 200px;
