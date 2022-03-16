@@ -177,12 +177,10 @@ label[for=dScore]{
     margin: 10px;
 }
 #one{
-
     margin-right: 10px;
     margin-left: 5px;
 }
 #eleven{
-  
     margin: 0;
 }
 label[for=pcardTotal]{
@@ -361,18 +359,26 @@ label[for=pScore]{
         font-size: .9em;
         text-align: center;
         }
-/* #dCardTotalLabel{
-    display:inline-block;
-    margin-left: 200px;
-    margin:5px;
-}
-#dCardTotal {
-    align-items: right;
-    width: 50px;
-    margin: 5px;
-    justify-content: center;
-    text-align: center;
-} */
+    #dCardTotalLabel{
+        font-size: .8em;
+    }
+    #aceChoice{
+        font-size: .8em;
+    }
+    #one{
+        font-size: .8em;
+    }
+    #eleven{
+        font-size: .8em;
+        margin-right: 20px;
+    }
+    label[for=pcardTotal]{
+        font-size: .7em;
+    } 
+
+    #pCardTotal{
+        width: 30px;
+    }
 
     #leftSidePlayer{
         height: 150px;
