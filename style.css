@@ -154,19 +154,18 @@ h2 {
     border-radius: 20%;
     border-left: none;
 }
-/* ********************************************** !!*/
 label[for=dScore]{
     /* font-size: 1em; */
     color: red;
 }
 
 #dScore{
-    /* border: 2px dotted green; */
     color:red;
     width: 40%;
     text-align: center;
 }
-/* **********************!! */
+
+/* ********************************************** !!*/
 
 #playerTopSections{
     display: flex;
@@ -206,7 +205,6 @@ label[for=pcardTotal]{
     display: flex;
     height: 200px;
     width: 10%;
-    /* background-color: crimson; */
     margin-right: 0;
     align-items: center;
     justify-content: center;
@@ -234,7 +232,6 @@ label[for=pcardTotal]{
     justify-content: center;
     height: 200px;
     width: 35%;
-    /* background-color: aquamarine; */
     margin: 0;
     border: 4px solid rgba(52, 145, 52, 0.9);
     border-radius: 20%;
@@ -251,7 +248,6 @@ label[for=pcardTotal]{
     display: flex;
     height: 200px;
     width: 10%;
-    /* background-color: crimson; */
     margin-left: 0;
     flex-direction: column;
     align-items: center;
@@ -262,12 +258,10 @@ label[for=pcardTotal]{
 }
 
 label[for=pScore]{
-    /* background-color: steelblue; */
     color: red;
 }
 
 #pScore{
-    /* border: 2px dotted green; */
     color: red;
     width: 40%;
     text-align: center;
@@ -292,7 +286,9 @@ label[for=pScore]{
     color:lightgray;
 }
 
-@media (max-width: 650px){
+
+/* *********** @media************* */
+@media (max-width: 700px){
     h1 {
         font-size: 1.7em;
         }

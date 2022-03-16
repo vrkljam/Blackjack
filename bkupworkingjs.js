@@ -36,7 +36,7 @@ let dCardCount=0;
 let pCardCount=0;
 let newGameBtn = document.querySelector('#newGameBtn')
 
-console.log(suits[0])
+// console.log(suits[0])
 
 //make a deck of cards
 function makeDeckOfCards (){
@@ -56,7 +56,6 @@ let counter =0
 function randCard(){
     let cardIndex = Math.floor(Math.random()*52);
         dealtCard= newDeck[cardIndex]
-        console.log (dealtCard)
     const isCard = tempHand.includes(dealtCard)
     if (isCard ===true){
         randCard()
@@ -140,6 +139,13 @@ function dealerHand (){
         dCardCount++
         console.log (dCardCount)
     }
+    // if (dealerCardTotal>=17 || dealerCardTotal>=22){
+    //     if (pHit.disabled===true){
+    //     dHit.disabled=true
+    //     compareScore()
+    //     }
+    // }
+
 
 checkStatus()
 }
@@ -186,9 +192,14 @@ function checkStatus (){
     if (playerCardTotal>=22){
         pHit.disabled=true;
         compareScore();
-    } else if (dealerCardTotal>=17 || dealerCardTotal>=22){
+    }  else if (dealerCardTotal>=17 || dealerCardTotal>=22){
+        if (pHit.disabled===true){
         dHit.disabled=true
         compareScore()
+        }
+    // else if (dealerCardTotal>=17 || dealerCardTotal>=22){
+    //     dHit.disabled=true
+    //     compareScore()
     } else if(pHit.disabled===true && dHit.disabled===true){
     compareScore() 
     }  
