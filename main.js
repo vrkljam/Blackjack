@@ -34,15 +34,14 @@ let dScore= document.querySelector('#dScore')
 let pScore= document.querySelector('#pScore')
 let dCardCount=0;
 let pCardCount=0;
+let newGameBtn = document.querySelector('#newGameBtn')
 
+console.log(suits[0])
 
-
-//********A Deck of cards */
 //make a deck of cards
 function makeDeckOfCards (){
     for (let i=0; i<suits.length; i++){
         for(let j=0; j<cardValues.length; j++){
-  
             let theCard = (`${cardValues[j]} ${suits[i]}`)
             newDeck.push(theCard)
         }
@@ -62,9 +61,8 @@ function randCard(){
     if (isCard ===true){
         randCard()
         } 
-    
     tempHand.push(dealtCard);
-    
+
     counter++
 
     if (counter===52){
@@ -75,10 +73,11 @@ function randCard(){
     }
 }
 
-
 function dealInit (){
-        oneBtn.disabled=true;
+
+    oneBtn.disabled=true;
     elevenBtn.disabled=true;
+
     playerHand(); 
     setTimeout(dealerHand, 500);
     setTimeout(playerHand, 1000);
@@ -110,9 +109,15 @@ function dealerHand (){
     let div1 = document.createElement ('div');
         dealerCards.appendChild(div1);
         div1.textContent =dealtCard;
+        console.log ()
+    if (dealtCard.split(" ")[1]==='♥︎'||dealtCard.split(" ")[1]==='♦︎'){
+        div1.style.color='red'
+    }
+        
         div1.classList.add('cardBoxDealer');
         div1.classList.add('shownCard');
-        div1.classList.add('hidden');
+        // div1.classList.add('hidden');
+        console.log(div1)
 
     let changCardToInt = dealtCard.split(" ",1);
     
@@ -126,39 +131,51 @@ function dealerHand (){
     
     dHit.disabled=false;
 
+    // dCardTotal.classList.add('totalHidden')
+    
     for (let i=0; i<dealerTotal.length; i++){
         dealerCardTotal +=Number(dealerTotal[i])
         dCardTotal.value=dealerCardTotal 
         dealerTotal=[]
+        dCardCount++
+        console.log (dCardCount)
     }
+//     if (dealerCardTotal>=17 || dealerCardTotal>=22){
+//         if (pHit.disabled===true){
+//             dHit.disabled=true
+//         }
+//     }
     
-    if (dealerCardTotal>=17 || dealerCardTotal>=22){
-        dHit.disabled=true
-    }
-    dCardCount++
-    if (dCardCount>=2){
-        div1.classList.remove('hidden')
-    }
-    if (dealerCardTotal===21 && dCardCount===2){
-        winner()
-    }  
-    checkStatus()
+    
+//     if (dCardCount>=2){
+//         div1.classList.remove('hidden')
+//     }
+//     if (dealerCardTotal===21 && dCardCount===2){
+//         winner()
+//     } 
+//     if (pHit.disabled===true && dCardCount>=2){ 
+//     checkStatus()
+// }
+checkStatus()
 }
-        
-function playerHand (){
 
+function playerHand (){
+    
     randCard()
     
     let div = document.createElement ('div')
-        playerCards.appendChild(div)
-        div.textContent =dealtCard
-        div.classList.add('cardBoxPlayer')
+    playerCards.appendChild(div)
+    div.textContent =dealtCard
+    if (dealtCard.split(" ")[1]==='♥︎'||dealtCard.split(" ")[1]==='♦︎'){
+        div.style.color='red'
+    }
+    div.classList.add('cardBoxPlayer')
     
     let changCardToInt = dealtCard.split(" ",1)
-
+    
     if (changCardToInt[0]==='Ace'){
         pAceValue();}
-
+        
     if (changCardToInt[0]==='Jack'||changCardToInt[0]==='Queen'||changCardToInt[0]==='King'){
         playerTotal.push(10)
     } else {
@@ -166,23 +183,32 @@ function playerHand (){
     }
     
     for (let i=0; i<playerTotal.length; i++){
-            playerCardTotal +=Number(playerTotal[i])
-            pCardTotal.value=playerCardTotal 
-            playerTotal=[]
-        }
-
+        playerCardTotal +=Number(playerTotal[i])
+        pCardTotal.value=playerCardTotal 
+        playerTotal=[]
+    }
+    
     pCardCount++
     
     pHit.disabled=false;
-
+    
     checkStatus()
-    }
+}
 
 function checkStatus (){
+    // let firstCard =document.querySelectorAll('.hidden')
+    // console.log(firstCard[0])
+    // if (pHit.disabled=true){
+    //     firstCard[0].classList.remove('hidden')
+    // }
+    console.log('checkstatus')
     if (playerCardTotal>=22){
         pHit.disabled=true;
         compareScore();
-    } else if (pHit.disabled===true && dHit.disabled===true){
+    } else if (dealerCardTotal>=17 || dealerCardTotal>=22){
+        dHit.disabled=true
+        compareScore()
+    } else if(pHit.disabled===true && dHit.disabled===true){
     compareScore() 
     }  
     gameWinner() 
@@ -240,8 +266,10 @@ console.log("compareScore")
         } 
         if (dealerCardTotal<21 && playerCardTotal <21){
             if (dealerCardTotal > playerCardTotal){
+                if (pHit.disabled===true){
                 alerts.textContent ='Dealer wins this hand'
             return  dScore.value ++
+                }
             }
         } 
         if (dealerCardTotal<21 && playerCardTotal<21){
@@ -258,6 +286,18 @@ console.log("compareScore")
             return pScore.value ++
             }
         } 
+        if (dealerCardTotal===21 && playerCardTotal<21){
+            if (pCardCount===2){
+                alerts.textContent ='Player got BlackJack and wins this hand'
+            } else {
+            alerts.textContent ='Player wins this hand'
+            return pScore.value ++
+            }
+        } 
+        if (dealerCardTotal===21 && playerCardTotal<21){
+            alerts.textContent ='Dealer wins this hand'
+            return  dScore.value ++
+        }
         if (playerCardTotal>=22 && playerCardTotal<21){
             alerts.textContent ='Dealer wins this hand'
             return  dScore.value ++
@@ -270,40 +310,48 @@ console.log("compareScore")
 
 function gameWinner(){
     console.log('gamewinner')
-    if (dScore.value>= 2 && pScore.value<1){
-        alerts.classList.add('winnerAlert')
-        alerts.textContent=''
-       alerts.textContent = 'Dealer got to 10 wins first!' 
-    } else if (pScore.value>= 2 && dScore.value<1){
-        alerts.classList.add('winnerAlert')
-        alerts.textContent=''
-        winnerAlert.textContent = 'Player got to 10 wins first!' 
+    if (dScore.value>= 5){
+        alerts.classList.add('winnerAlert');
+        alerts.textContent='';
+        alerts.textContent = 'Dealer got to 10 wins first!' ;
+
+    } else if (pScore.value>= 5){
+        alerts.classList.add('winnerAlert');
+        alerts.textContent='';
+       alerts.textContent = 'Player got to 10 wins first!' ;
+ 
     }
-
-    gameReset()
 }
 
-function gameReset(){
- dScore.value=0
- pScore.value=0
- document.querySelectorAll( '.cardBoxDealer').forEach(items=>items.remove());
- document.querySelectorAll( '.cardBoxPlayer').forEach(items=>items.remove());
- startBtn.classList.remove('grayLetters');
- startBtn.disabled=false;
- pHit.disabled=true;
- dHit.disabled=true;
- dealerCardTotal=0;
- dCardTotal.value='';
- playerCardTotal=0;
- pCardTotal.value='';
- dCardCount=0;
- pCardCount=0;
- alerts.textContent =''
+function newGame(){
+      alerts.textContent=''
+    alerts.classList.remove('winnerAlert')
+     dScore.value=0
+     pScore.value=0
+      document.querySelectorAll( '.cardBoxDealer').forEach(items=>items.remove());
+      document.querySelectorAll( '.cardBoxPlayer').forEach(items=>items.remove());
+       dealerCardTotal=0;
+       dCardTotal.value='';
+       playerCardTotal=0;
+       pCardTotal.value='';
+       dCardCount=0;
+       pCardCount=0;
 }
+
+// function gameReset(){
+  
+//  startBtn.classList.remove('grayLetters');
+//  startBtn.disabled=false;
+//  pHit.disabled=true;
+//  dHit.disabled=true;
+
+// }
+
 //disabled based from stackoverflow/thewebdev
 startBtn.addEventListener('click', ()=> {
     dealInit(); 
     startBtn.disabled=true})
+
 
 //stack overflow and tutorials point for "set timeout" help
 dHit.addEventListener('click',dealerHand)
@@ -311,19 +359,12 @@ pHit.addEventListener('click',playerHand)
 
 playAgain.addEventListener('click', playReset)
 
+newGameBtn.addEventListener('click', newGame)
+
 //switched to disabled
 pHold.addEventListener('click', ()=> {pHit.disabled=true; checkStatus()})
 
 //one and elven buttons
-oneBtn.addEventListener('click',()=> {Number(playerCardTotal-=10);pCardTotal.value=playerCardTotal;console.log (playerCardTotal)})
-//e=> playercardtotal ++
+oneBtn.addEventListener('click',()=> {Number(playerCardTotal-=10);pCardTotal.value=playerCardTotal;})
     
-elevenBtn.addEventListener('click', ()=> {Number(playerCardTotal+=10); pCardTotal.value=playerCardTotal; console.log (playerCardTotal)})
-
-console.log(oneBtn);
-console.log(elevenBtn)
-
-//********************Adding Cards */
-
-//need to get Ace figured out 
-//************************** */
+elevenBtn.addEventListener('click', ()=> {Number(playerCardTotal+=10); pCardTotal.value=playerCardTotal;})
