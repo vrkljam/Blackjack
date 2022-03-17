@@ -101,7 +101,7 @@ h2 {
     border-right: none;
 }
 #dHit {
-    height: 50%;
+    height: 30%;
     width: 90%;
     font-size: 2em;
     border-radius: 10%;
@@ -123,6 +123,10 @@ h2 {
     justify-content: center;
     align-items: center;
 }
+/* .showCard{
+    transition:all 2s linear;
+    transform: rotate(360deg);
+} */
 .cardBoxDealer{
     height:90px;
     width: 45px;

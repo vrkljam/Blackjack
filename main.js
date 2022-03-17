@@ -52,7 +52,7 @@ function makeDeckOfCards (){
     }
 }
 makeDeckOfCards()
-
+console.log(newDeck)
 //pick a random card and prevent it from being selected again--DONE!!
 let tempHand  =[] 
 let counter =0  
@@ -106,7 +106,7 @@ function playReset (){
     }
 
     function dealerHand (){
-        
+        console.log (dealtCard)
         randCard()
         
     let div1 = document.createElement ('div');
@@ -118,6 +118,7 @@ function playReset (){
     }
         div1.classList.add('cardBoxDealer');
         div1.classList.add('hidden');
+        // div1.classList.add('showCard')
 
     let changCardToInt = dealtCard.split(" ",1);
     
