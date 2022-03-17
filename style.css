@@ -143,6 +143,7 @@ h2 {
 }
 
 .hidden {
+    /* image from https://pixabay.com/photos/playing-card-back-template-568200/ */
     background-image: url('images/playing-card-g94b04bb74_640.jpg');
 }
 #rightSideDealer{
