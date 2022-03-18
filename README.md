@@ -1,18 +1,18 @@
 # Project1-Blackjack
-### 1st project
+---------
+## 1st project
 
-## code styles
-- css
+### Code Styles
+- HTML
+- 
 
-description of game
-My app will be Blakjack online card game. The number of players will be between one and six. Scoring will be tracked as money in their account. This will be a one deck of card version of the game. Users will be able to play while they have enough funds in their account.
+#### Description of game
+This is a Blakjack online card game. It will allow a player to play against a dealer. The game ends with the first to get to 10 wins. This game uses one deck of cards for play.
 
-rules
-player or dealer that is closest to 21 without going over wins the hand
-If there is a tie then no one wins that hand
-blackjacK (an ace with a face card or 10) beats a multi card 21
+##### Rules
+The player tries to beat the dealer by getting 21 or getting a hand that is higher than the dealer without going over 21. If there is a tie (push) then no one wins that hand.  BlackjacK (an ace with a face card or 10) beats a multi card 21.
 
-instructions
+##### Instructions
 first click the deal button to get the initial cards
 next the player can choose to hit or hold
     if the player has an ace the can change the value from one to eleven or vise versa as they want
