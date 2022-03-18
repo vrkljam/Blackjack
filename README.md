@@ -1,10 +1,11 @@
 # Project1-Blackjack
 ---------
-## 1st project
+![screenshot of the game] (/images/Screen Shot 2022-03-16 at 6.47.47 PM.png)
 
 ### Code Styles
 - HTML
-- 
+- CSS
+- JS
 
 #### Description of game
 This is a Blakjack online card game. It will allow a player to play against a dealer. The game ends with the first to get to 10 wins. This game uses one deck of cards for play.
