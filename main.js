@@ -103,6 +103,7 @@ function playReset (){
         dCardCount=0;
         pCardCount=0;
         alerts.textContent =''
+        newGameBtn.disabled=true;
     }
 
     function dealerHand (){
@@ -308,11 +309,13 @@ function gameWinner(){
         alerts.classList.add('winnerAlert');
         alerts.textContent='';
         alerts.textContent = 'Dealer got to 10 wins first!' ;
+        newGameBtn.disabled=false;
 
     } else if (pScore.value>= 10){
         alerts.classList.add('winnerAlert');
         alerts.textContent='';
        alerts.textContent = 'Player got to 10 wins first!' ;
+       newGameBtn.disabled=false;
  
     }
 }
