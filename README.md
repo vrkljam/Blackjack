@@ -31,6 +31,13 @@ To deal a new hand, click on "New Hand" button and then the "Deal" button.
 The winner is the first to get to 10 wins.
 A new game can be started by clicking on 'New Game'
 
+## MVP
+- Make a two player Blackjack game.
+- Able to view cards from both players.
+- Able to draw and hold as desired.
+- Able to see a total of the cards for each player and dealer.
+- Able to play multiple rounds.
+
 ## Difficulties
 - Creating a table top from scratch and using the CSS to place items where I wanted.
 - Coding the rules for player hand totals.
