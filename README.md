@@ -2,7 +2,7 @@
 ---------
 ![screenshot of the game](/images/ScreenShot-blackjack-game.jpg)
 
-**Link to the game:** [Click Here] (https://vrkljam.github.io/Project1-Blackjack)
+**Link to the game:** [Click Here](https://vrkljam.github.io/Project1-Blackjack)
 
 ### Code Styles
 - HTML
