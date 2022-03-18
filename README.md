@@ -1,6 +1,6 @@
 # Project1-Blackjack
 ---------
-![screenshot of the game] (/images/Screen Shot 2022-03-16 at 6.47.47 PM.png)
+![screenshot of the game](/images/ScreenShot-blackjack-game.jpg)
 
 ### Code Styles
 - HTML
