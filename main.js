@@ -118,7 +118,7 @@ function playReset (){
     }
         div1.classList.add('cardBoxDealer');
         div1.classList.add('hidden');
-        // div1.classList.add('showCard')
+        div1.classList.add('showCard')
 
     let changCardToInt = dealtCard.split(" ",1);
     

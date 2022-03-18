@@ -17,15 +17,16 @@
     </div>
 
     
-    <button id="startBtn">Deal
-            <audio src="audio/shu"></audio>
-    </button>
+    <button id="startBtn">Deal</button>
     <button id="playAgain">New Hand</button>
     <button id="newGameBtn">New Game</button>
+
+    
     
     <div>
-        
-        <h2>Dealer</h2>
+        <div id="dealerHeader">
+        <h2 id="dealerH2">Dealer</h2>
+    </div>
         <section id ="forDealer">
             <label for="dCardTotal" id="dCardTotalLabel">Dealer Card Total</label>
             <input type="text" placeholder='' name="cardTotal" id="dCardTotal">
@@ -47,8 +48,9 @@
         <p id = 'alerts' >Message: </p>
         
         <!-- class ='winnerAlert' -->
-
-        <h2>Player</h2>
+<div id ='playerHeader'>
+        <h2 id="playerH2">Player</h2>
+   </div>     
         <div id ='playerTopSections'>
             <!-- <section> -->
                 <section id="aceChoice"> Ace Choice:
