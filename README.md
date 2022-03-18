@@ -2,6 +2,8 @@
 ---------
 ![screenshot of the game](/images/ScreenShot-blackjack-game.jpg)
 
+**Link to the game:** [Click Here] (https://vrkljam.github.io/Project1-Blackjack)
+
 ### Code Styles
 - HTML
 - CSS
@@ -28,3 +30,17 @@ To deal a new hand, click on "New Hand" button and then the "Deal" button.
 
 The winner is the first to get to 10 wins.
 A new game can be started by clicking on 'New Game'
+
+## Difficulties
+- Creating a table top from scratch and using the CSS to place items where I wanted.
+- Coding the rules for player hand totals.
+- Allowing the player to choose either a value of one or eleven when it received an Ace.
+- How to clear the board and start a new game after 10 wins.
+- Hiding one of the dealer's cards until after the player was done.
+
+## Future Additions
+- Multiplayer mode.
+- Tournament mode with a timer.
+- Betting with chips.
+- Dialog box to communicate between players and or dealer.
+
