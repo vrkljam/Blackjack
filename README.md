@@ -1,4 +1,4 @@
-# Project1-Blackjack
+# Blackjack
 ---------
 ![screenshot of the game](/images/ScreenShot-blackjack-game.jpg)
 
