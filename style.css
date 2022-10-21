@@ -60,6 +60,15 @@ h1 {
      font-weight: bold;
  }
 
+#rules{
+    color: blue;
+    font-size: 2vh;
+    text-align: center;
+    width: 90vh;
+    margin: auto;
+    
+}
+
 h2 {
     text-align: center;
     font-size: x-large;

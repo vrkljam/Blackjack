@@ -16,7 +16,8 @@
         <p class="symbols" id="diamonds">♦</p>
     </div>
 
-    
+    <div id="rules">Play against the Dealer, first to 10 Wins will win the game. Start game by clicking "New Hand" then "Deal". After you are dealt your cards,Click "Hit" if you want more cards, and "Hold" when you are done. For the Dealer, click "Hit" button if he is under 17. After that round, click "New Hand" to get dealt again.</div>
+
     <button id="startBtn">Deal</button>
     <button id="playAgain">New Hand</button>
     <button id="newGameBtn">New Game</button>
@@ -49,38 +50,36 @@
         
         <!-- class ='winnerAlert' -->
 <div id ='playerHeader'>
-        <h2 id="playerH2">Player</h2>
-   </div>     
-        <div id ='playerTopSections'>
-            <!-- <section> -->
-                <section id="aceChoice"> Ace Choice:
+    <h2 id="playerH2">Player</h2>
+</div>   
+
+<div id ='playerTopSections'>
+
+    <section id="aceChoice"> Ace Choice:
         <button id="one">One</button>
         <button id="eleven">Eleven</button>
-    <!-- </section>
 
-    <section> -->
-    <label for="pcardTotal">Player Card Total</label>
-    <input type="text" placeholder='' name="cardTotal" id="pCardTotal">
+        <label for="pcardTotal">Player Card Total</label>
+        <input type="text" placeholder='' name="cardTotal" id="pCardTotal">
     </section>
-
-  <!-- </section>   -->
 </div>
+
 <div id="playerContainer">
-    <div id="leftSidePlayer">
-        <button id="pHit">Hit</button>
-        <button id="pHold">Hold</button>
+        <div id="leftSidePlayer">
+            <button id="pHit">Hit</button>
+            <button id="pHold">Hold</button>
         </div>
 
-    <div id = "playerCardArea">
-        <div id="playerCards"></div>
+        <div id = "playerCardArea">
+            <div id="playerCards"></div>
 
-    </div>
+        </div>
 
     <div id="rightSidePlayer">
         <label for="pScore" class="playerScoreLabel">Player Wins</label>
         <input type="text" placeholder='' name="pScore" id="pScore">
+    </div>
 </div>
-    
     <script src="main.js"></script>
     
 </body>
