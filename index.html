@@ -22,64 +22,80 @@
     <button id="playAgain">New Hand</button>
     <button id="newGameBtn">New Game</button>
 
+    <!-- Modal box section -->
+    <div id="modal">
+        <div id="modal-textbox">
+            <h1>Learn to Play Blackjack</h1>
+            <p>Play against the dealer and try to get 10 wins before he does.</p>
+            <p>To start the game click the <strong>Deal</strong> button to get the initial set of cards.</p>
+            <p>The player wil then choose to Hit or Hold. Should the player get an ace, they can change the value from One to Eleven or vise versa as they want using the buttons.</p>
+            <p>The player has to click the Hold button when they are satisfied with their hand. Next, it's the dealer's turn. The dealer can hit until they have a hand that is at minumum of 17.</p>
+            <p>The cards in each hand are compared to determine a winner of that hand and that is logged in the "Wins" box for the respective wnnner.</p>
+            <p>To deal a new hand, click on <strong>"New Hand"</strong> button and then the <strong>"Deal"</strong> button.</p>
+            <div id="modal-footer">
+                <button class="modal-buttons" id="close" href="#">Close</button>
+            </div>
+        </div>
+    </div>
     
     
     <div>
         <div id="dealerHeader">
         <h2 id="dealerH2">Dealer</h2>
     </div>
-        <section id ="forDealer">
-            <label for="dCardTotal" id="dCardTotalLabel">Dealer Card Total</label>
-            <input type="text" placeholder='' name="cardTotal" id="dCardTotal">
-        </section>
-        <div id="dealerContainer">
-            <div id="leftSideDealer">
-                <button id="dHit">Hit</button>
-            </div>
-            
-            <div id = "dealerCardArea">
-                <div id="dealerCards"></div>
-                
-            </div>
-            <div id="rightSideDealer">
-                <label for="dScore" id ='dealerWinLabel'>Dealer Wins</label>
-                <input type="text" placeholder='' name="dScore" id="dScore">
-            </div>
+    <section id ="forDealer">
+        <label for="dCardTotal" id="dCardTotalLabel">Dealer Card Total</label>
+        <input type="text" placeholder='' name="cardTotal" id="dCardTotal">
+    </section>
+    <div id="dealerContainer">
+        <div id="leftSideDealer">
+            <button id="dHit">Hit</button>
         </div>
-        <p id = 'alerts' >Message: </p>
+        
+        <div id = "dealerCardArea">
+            <div id="dealerCards"></div>
+            
+        </div>
+        <div id="rightSideDealer">
+            <label for="dScore" id ='dealerWinLabel'>Dealer Wins</label>
+            <input type="text" placeholder='' name="dScore" id="dScore">
+        </div>
+    </div>
+    <p id = 'alerts' >Message: </p>
         
         <!-- class ='winnerAlert' -->
-<div id ='playerHeader'>
-    <h2 id="playerH2">Player</h2>
-</div>   
+    <div id ='playerHeader'>
+        <h2 id="playerH2">Player</h2>
+    </div>   
 
-<div id ='playerTopSections'>
+    <div id ='playerTopSections'>
 
-    <section id="aceChoice"> Ace Choice:
-        <button id="one">One</button>
-        <button id="eleven">Eleven</button>
+        <section id="aceChoice"> Ace Choice:
+            <button id="one">One</button>
+            <button id="eleven">Eleven</button>
 
-        <label for="pcardTotal">Player Card Total</label>
-        <input type="text" placeholder='' name="cardTotal" id="pCardTotal">
-    </section>
-</div>
-
-<div id="playerContainer">
-        <div id="leftSidePlayer">
-            <button id="pHit">Hit</button>
-            <button id="pHold">Hold</button>
-        </div>
-
-        <div id = "playerCardArea">
-            <div id="playerCards"></div>
-
-        </div>
-
-    <div id="rightSidePlayer">
-        <label for="pScore" class="playerScoreLabel">Player Wins</label>
-        <input type="text" placeholder='' name="pScore" id="pScore">
+            <label for="pcardTotal">Player Card Total</label>
+            <input type="text" placeholder='' name="cardTotal" id="pCardTotal">
+        </section>
     </div>
-</div>
+
+    <div id="playerContainer">
+            <div id="leftSidePlayer">
+                <button id="pHit">Hit</button>
+                <button id="pHold">Hold</button>
+            </div>
+
+            <div id = "playerCardArea">
+                <div id="playerCards"></div>
+
+            </div>
+
+        <div id="rightSidePlayer">
+            <label for="pScore" class="playerScoreLabel">Player Wins</label>
+            <input type="text" placeholder='' name="pScore" id="pScore">
+        </div>
+    </div>
+        
     <script src="main.js"></script>
     
 </body>
