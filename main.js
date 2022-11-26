@@ -37,10 +37,22 @@ let pCardCount=0;
 let newGameBtn = document.querySelector('#newGameBtn')
 let tempCard
 let tempText
-
+const openBtn = document.querySelector('#openModal');
+const modal = document.querySelector('#modal');
+const close = document.querySelector('#close');
 
 
 // console.log(suits[0])
+
+
+// modal functions
+const openModal =()=>{
+    modal.style.display ='block';
+}
+
+const closeModal = () =>{
+    modal.style.display ='none'
+}
 
 //make a deck of cards
 function makeDeckOfCards (){
@@ -337,6 +349,10 @@ function newGame(){
 
 
 //**********Eventlisteners */
+
+// modal events
+openBtn.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
 
 //disabled based from stackoverflow/thewebdev
 startBtn.addEventListener('click', ()=> {
