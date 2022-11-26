@@ -36,16 +36,6 @@ h1 {
     text-align: right;
 }
 
-.modal-buttons {
-    padding: 14px 18px;
-    background-color: #677996;
-    border: none;
-    outline: none;
-    border-radius: 3px;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    cursor: pointer;
-}
 
 .symbols {
     font-size: 100px;
@@ -89,20 +79,31 @@ h1 {
     left:20%;
 }
 
+.modal-buttons {
+    padding: 14px 18px;
+    background-color: #6779EA;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}
+
 #startBtn{
     position: relative;
     font-size: large;
     border-radius: 10%;
     text-shadow: 2px black;
-    left:46%;
+    left:32%;
  }
  #playAgain{
      position: relative;
-     left:46%;
+     left:37%;
  }
  #newGameBtn{
      position: relative;
-     left:58%;
+     left:55%;
      font-weight: bold;
  }
 
@@ -356,7 +357,7 @@ label[for=pScore]{
 
 
 /* *********** @media************* */
-@media (max-width: 700px){
+@media (max-width: 500px){
     h1 {
         font-size: 1.7em;
         }
@@ -380,6 +381,16 @@ label[for=pScore]{
         bottom:10px;
         right:10px;
         }
+    #openModal {
+        position: relative;
+        left: 8%;
+        height: 3rem;
+        width: 5rem;
+        font-size: .7rem;
+        /* text-align: center; */
+        align-items: center;
+        padding-top: 5px;
+    }
     #startBtn{
         font-size: small;
         left:15%
@@ -391,6 +402,10 @@ label[for=pScore]{
         left:20%;
         font-weight: bold;
         }
+
+    #dealerHeader {
+        margin-top: 15%;
+    }
     h2 {
         font-size: large;
         }
